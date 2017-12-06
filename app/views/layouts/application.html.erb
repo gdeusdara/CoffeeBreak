@@ -1,16 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Ep3</title>
-    <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
-  <body>
-	  <p class="notice"><%= notice %></p>
-	  <p class="alert"><%= alert %></p>
-    <%= yield %>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="/">EP3</a>
+      <p class="navbar-text pull-right">
+        <% if usuario_signed_in? %>
+          Logged in as <strong><%= current_usuario.email %></strong>.
+          <%= link_to 'Edit profile', edit_usuario_registration_path, :class => 'navbar-link' %> |
+          <%= link_to "Logout", destroy_usuario_session_path, method: :delete, :class => 'navbar-link'  %>
+        <% else %>
+          <%= link_to "Sign up", new_usuario_registration_path, :class => 'navbar-link'  %> |
+          <%= link_to "Login", new_usuario_session_path, :class => 'navbar-link'  %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+</div>
+<title>Ep3</title>
+<%= csrf_meta_tags %>
+
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+<%= yield %>
   </body>
 </html>

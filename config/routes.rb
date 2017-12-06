@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'loggin' => 'usuario#loggin'
-
-  get 'usuario/show'
-
   get 'home' => 'paginas_iniciais#home'
 
   get 'sobre' => 'paginas_iniciais#sobre'
@@ -11,5 +7,9 @@ Rails.application.routes.draw do
   root                 'paginas_iniciais#home'
 
   devise_for :usuarios
+
+  devise_scope :user do
+    get 'loggin' => 'devise/sessions#create'
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
