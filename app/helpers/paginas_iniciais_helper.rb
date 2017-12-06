@@ -1,0 +1,2 @@
+module PaginasIniciaisHelper
+end
