@@ -1,25 +1,38 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- Bootstrap core CSS -->
+    <link href="https://blackrockdigital.github.io/startbootstrap-creative/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-  <div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Plugin CSS -->
+    <link href="https://blackrockdigital.github.io/startbootstrap-creative/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+   
+       <body>
+   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="brand" href="/">EP3</a>
-        <p class="navbar-text pull-right">
-          <% if usuario_signed_in? %>
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">FaceProjects</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <% if usuario_signed_in? %>
             Olá <strong><%= current_usuario.email %></strong>.
-            <%= link_to 'Editar conta', editar_conta_path, :class => 'navbar-link' %> |
-            <%= link_to "Logout", destroy_usuario_session_path, method: :delete, :class => 'navbar-link'  %>
+            <%= link_to 'Editar conta', editar_conta_path, :class => 'nav-link js-scroll-trigger' %> |
+            <%= link_to "Logout", destroy_usuario_session_path, method: :delete, :class => 'nav-link js-scroll-trigger'  %>
           <% else %>
-            <%= link_to "Cadastre-se", cadastrar_path, :class => 'navbar-link'  %> |
-            <%= link_to "Login", login_path, :class => 'navbar-link'  %>
+            <%= link_to "Cadastre-se", cadastrar_path, :class => 'nav-link js-scroll-trigger'  %> |
+            <%= link_to "Login", login_path, :class => 'nav-link js-scroll-trigger'  %>
           <% end %>
-        </p>
+          </ul>
+        </div>
       </div>
-    </div>
-  </div>
-
+    </nav>
 <title>Ep3</title>
 <%= csrf_meta_tags %>
 
@@ -27,7 +40,7 @@
 <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
-<body>
+
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 <%= yield %>
