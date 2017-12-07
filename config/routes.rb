@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   devise_scope :usuario do
     get 'login' => 'devise/sessions#create'
     get 'cadastrar' => 'devise/registrations#new'
-    get 'editar_perfil' => 'devise/registrations#edit'
+    get 'editar_conta' => 'devise/registrations#edit'
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
