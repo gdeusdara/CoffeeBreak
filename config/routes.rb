@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root                 'paginas_iniciais#home'
 
-  devise_for :usuarios
+  devise_for :usuarios, :controllers => { registrations: 'registrations' }
 
   devise_scope :usuario do
     get 'login' => 'devise/sessions#create'

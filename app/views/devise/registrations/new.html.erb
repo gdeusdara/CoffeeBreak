@@ -1,34 +1,57 @@
-<h2>Novo Usuário</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+      <div class="container my-auto">
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <h1 class="text-uppercase">
+              <strong>Novo Usuário</strong>
+            </h1>
 
-  <div class="field">
-    <%= f.label :nome %><br />
-    <%= f.text_field :nome, autofocus: true %>
-  </div>
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+            <div class="field">
+              <%= f.label :nome %><br />
+              <%= f.text_field :nome, autofocus: true %>
+            </div>
 
-  <div class="field">
-    <%= f.label :senha %>
-    <% if @minimum_password_length %>
-    <em>(minimo de <%= @minimum_password_length %> caracteres)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+            <div class="field">
+              <%= f.label :email %><br />
+              <%= f.email_field :email, autofocus: true %>
+            </div>
 
-  <div class="field">
-    <%= f.label :confirmação_de_senha %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+            <div class="field">
+              <%= f.label :senha %>
+              <% if @minimum_password_length %>
+              <em>(minimo de <%= @minimum_password_length %> caracteres)</em>
+              <% end %><br />
+              <%= f.password_field :password, autocomplete: "off" %>
+            </div>
 
-  <div class="actions">
-    <%= f.submit "Cadastrar" %>
-  </div>
-<% end %>
+            <div class="field">
+              <%= f.label :confirmação_de_senha %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "off" %>
+            </div>
 
-<%= render "devise/shared/links" %>
+            <div class="field">
+              <%= f.label :desenvolvedor %>
+              <%= f.check_box :desenvolvedor, autofocus: true %>
+            </div>
+
+
+            <div class="actions">
+              <%= f.submit "Cadastrar" %>
+            </div>
+            <% end %>
+
+            <br>
+            <br>
+            <a class="btn btn-primary btn-xl js-scroll-trigger" href="login">Já tenho cadastrado!</a>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+          </div>
+        </div>
+      </div>

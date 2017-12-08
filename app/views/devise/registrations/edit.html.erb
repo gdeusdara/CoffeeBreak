@@ -1,48 +1,68 @@
-<h2>Editar Conta</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+      <div class="container my-auto">
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <h1 class="text-uppercase">
+              <strong>Editar Conta</strong>
+            </h1>
 
-  <div class="field">
-    <%= f.label :nome %><br />
-    <%= f.text_field :nome, autofocus: true %>
-  </div>
+              <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+              <%= devise_error_messages! %>
+              <br>
+              <div class="field">
+                <%= f.label :nome %>
+                <%= f.text_field :nome, autofocus: true %>
+              </div>
+              <br>
+              <div class="field">
+                <%= f.label :email %>
+                <%= f.email_field :email, autofocus: true %>
+              </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+              <% end %>
+              <br>
+              <div class="field">
+                <%= f.label :nova_senha %></i><br>
+                <%= f.password_field :password, autocomplete: "off" %>
+              </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+              <div class="field">
+                <%= f.label :confirmação_de_senha %><br>
+                <%= f.password_field :password_confirmation, autocomplete: "off" %>
+              </div>
+              <br>
+              <div class="field">
+                <%= f.label :desenvolvedor %>
+                <%= f.check_box :desenvolvedor, autofocus: true %>
+              </div>
 
-  <div class="field">
-    <%= f.label :senha %> <i>(deixe em branco se não deseja mudar)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em>minimo de <%= @minimum_password_length %> caracteres</em>
-    <% end %>
-  </div>
+              <br>
+              <div class="field">
+                <%= f.label :senha_atual %><br>
+                <%= f.password_field :current_password, autocomplete: "off" %><br />
+                <i>(é preciso a senha atual para salvar as modificações)</i>
+              </div>
 
-  <div class="field">
-    <%= f.label :confirmação_de_senha %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+              <br>
 
-  <div class="field">
-    <%= f.label :senha_atual %> <i>(é preciso a senha atual para salvar as modificações)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
+              <div class="actions">
+                <%= f.submit "Atualizar" %>
+              </div>
+              <% end %>
 
-  <div class="actions">
-    <%= f.submit "Atualizar" %>
-  </div>
-<% end %>
+              <h2>Deletar conta</h2>
 
-<h3>Deletar conta</h3>
-
-<p>Depois de deletada a conta não poderá ser recuperada!<%= button_to "Apagar minha conta", registration_path(resource_name), data: { confirm: "Tem certeza?" }, method: :delete %></p>
-
-<%= link_to "Voltar", :back %>
+              <p>Depois de deletada a conta não poderá ser recuperada!<%= button_to "Apagar minha conta", registration_path(resource_name), data: { confirm: "Tem certeza?" }, method: :delete %></p>
+              <br>
+              <a class="btn btn-primary btn-xl js-scroll-trigger" href="/">Voltar</a>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+            </div>
+          </div>
+        </div>
