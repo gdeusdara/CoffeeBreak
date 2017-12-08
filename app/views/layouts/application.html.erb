@@ -32,6 +32,13 @@
                  <% end %>
                  <%= link_to "Sobre", sobre_path, :class => 'nav-link js-scroll-trigger'  %>
                </ul>
+               <ul class="navbar-nav ml-auto navbar-right">
+                 <% if usuario_signed_in?%>
+                 <% if current_usuario.desenvolvedor%>
+                   <%= link_to "Crie um novo projeto", new_projeto_path, :class => 'nav-link js-scroll-trigger' %>
+                  <% end %>
+                 <%end%>
+               </ul>
              </div>
            </div>
          </nav>
