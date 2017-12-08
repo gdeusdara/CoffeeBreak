@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :projetos
   get 'sobre' => 'paginas_iniciais#sobre'
 
   root                 'paginas_iniciais#home'

@@ -13,36 +13,39 @@
     <link href="https://blackrockdigital.github.io/startbootstrap-creative/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
        <body>
-   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="/">FaceProjects</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <% if usuario_signed_in? %>
-            Olá <strong><%= current_usuario.nome %></strong>
-            <%= link_to 'Editar conta', editar_conta_path, :class => 'nav-link js-scroll-trigger' %> |
-            <%= link_to "Logout", destroy_usuario_session_path, method: :delete, :class => 'nav-link js-scroll-trigger'  %>
-          <% else %>
-            <%= link_to "Cadastre-se", cadastrar_path, :class => 'nav-link js-scroll-trigger'  %> |
-            <%= link_to "Login", login_path, :class => 'nav-link js-scroll-trigger'  %>
-          <% end %>
-          </ul>
-        </div>
-      </div>
-    </nav>
-<title>Ep3</title>
-<%= csrf_meta_tags %>
+         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+           <div class="container">
+             <a class="navbar-brand js-scroll-trigger" href="/">FaceProjects</a>
+             <button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+             </button>
+             <div class="collapse navbar-collapse" id="navbarResponsive">
+               <ul class="navbar-nav ml-auto">
+                 <% if usuario_signed_in? %>
+                 <%saudacao = "Olá "+ current_usuario.nome + "!"%>
+                 <strong><%= link_to saudacao, editar_conta_path, :class => 'nav-link js-scroll-trigger' %></strong>
+                 <%= link_to "Editar conta", editar_conta_path, :class => 'nav-link js-scroll-trigger'  %>
+                 <%= link_to "Logout", destroy_usuario_session_path, method: :delete, :class => 'nav-link js-scroll-trigger'  %>
+                 <% else %>
+                 <%= link_to "Cadastre-se", cadastrar_path, :class => 'nav-link js-scroll-trigger'  %>
+                 <%= link_to "Login", login_path, :class => 'nav-link js-scroll-trigger'  %>
+                 <% end %>
+                 <%= link_to "Sobre", sobre_path, :class => 'nav-link js-scroll-trigger'  %>
+               </ul>
+             </div>
+           </div>
+         </nav>
 
-<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-</head>
+        <title>Ep3</title>
+        <%= csrf_meta_tags %>
+
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      </head>
 
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-<%= yield %>
-  </body>
-</html>
+     <p class="notice"><%= notice %></p>
+     <p class="alert"><%= alert %></p>
+     <%= yield %>
+    </body>
+  </html>
