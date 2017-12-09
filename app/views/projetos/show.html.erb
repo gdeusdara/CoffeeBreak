@@ -15,5 +15,10 @@
   <%= @projeto.instrucoes %>
 </p>
 
-<%= link_to 'Edit', edit_projeto_path(@projeto) %> |
-<%= link_to 'Back', projetos_path %>
+<%if usuario_signed_in?%>
+  <% if @projeto.usuario_id == current_usuario.id %>
+  <%= link_to 'Editar', edit_projeto_path(@projeto) %>
+  <%= link_to 'Apagar', projeto_path(@projeto), method: :delete, data: {confirm: "Tem certeza?"} %>
+  <% end %>
+<%end%>
+  <%= link_to 'Voltar', projetos_path %>
