@@ -15,6 +15,7 @@ class ProjetosController < ApplicationController
   # GET /projetos/new
   def new
     @projeto = current_usuario.projetos.build
+    @categoria = Categoria.all.map { |e| [e.nome] }
   end
 
   # GET /projetos/1/edit
@@ -25,6 +26,7 @@ class ProjetosController < ApplicationController
   # POST /projetos.json
   def create
     @projeto = current_usuario.projetos.build(projeto_params)
+    @projeto.categoria_id = params[:categoria_id]
     respond_to do |format|
       if @projeto.save
         format.html { redirect_to @projeto, notice: 'Projeto was successfully created.' }

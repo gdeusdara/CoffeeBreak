@@ -1,40 +1,9 @@
 
-<%= form_with(model: projeto, local: true) do |form| %>
-  <% if projeto.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(projeto.errors.count, "error") %> prohibited this projeto from being saved:</h2>
-
-      <ul>
-      <% projeto.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :titulo %>
-    <%= form.text_field :titulo, id: :projeto_titulo %>
-  </div>
-
-  <div class="field">
-    <%= form.label :descricao %>
-    <%= form.text_area :descricao, id: :projeto_descricao %>
-  </div>
-
-  <div class="field">
-    <%= form.label :instrucoes %>
-    <%= form.text_area :instrucoes, id: :projeto_instrucoes %>
-  </div>
-
-  <div class="field">
-    <%= form.label :foto_do_projeto %><br />
-    <%= form.file_field :foto_projeto %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-
-
+<%= simple_form_for @projeto, :html => { :multipart => true } do |f| %>
+  <%= select_tag(:categoria_id, options_for_select(@categoria), :prompt => "Selecione uma Categoria") %>
+	<%= f.input :titulo, label: "Título do Projeto" %>
+	<%= f.input :descricao %>
+	<%= f.input :instrucoes %>
+  <%= f.file_field :foto_do_projeto %>
+	<%= f.button :submit, :class => 'btn-custom2' %>
 <% end %>
