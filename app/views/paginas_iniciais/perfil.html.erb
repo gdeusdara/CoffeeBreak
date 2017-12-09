@@ -1,0 +1,41 @@
+
+      <div class="container my-auto">
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <h1 class="text-uppercase">
+              <strong>Olá <%=current_usuario.nome%></strong>
+            </h1>
+            <hr>
+          </div>
+          <%if current_usuario.desenvolvedor%>
+          <div class="col-lg-8 mx-auto">
+            <p class="text-faded mb-5">Bem vindo(a) ao nosso site de compartilhamento de projetos! Nessa Página você pode ver todos os seus projetos criados e adicionar outros!</p>
+
+
+          <% current_usuario.projetos.each do |projeto| %>
+            <tr>
+              <h2><%= projeto.titulo %></h2>
+              <%= image_tag projeto.foto_projeto.url(:medium) %><br>
+              <%autor = Usuario.find(projeto.usuario_id)%>
+              <p><strong>Descricao: </strong><%= projeto.descricao %></p>
+              <% prox_pagina = "projetos/"+projeto.id.to_s%>
+              <a class="btn btn-primary btn-xl js-scroll-trigger" href=<%=prox_pagina %>>Visualizar</a>
+              <a class="btn btn-primary btn-xl js-scroll-trigger" href=<%=prox_pagina+"/edit" %>>Editar</a>
+
+              <br>
+          <% end %>
+          <br>
+          <br>
+          <a class="btn btn-primary btn-xl js-scroll-trigger" href="projetos/new">Crie um novo projeto</a>
+          <br>
+          <br>
+          <%else%>
+          <div class="col-lg-8 mx-auto">
+            <p class="text-faded mb-5">Bem vindo(a) ao nosso site de compartilhamento de projetos!
+               Aqui você pode explorar projetos novos, siguir outros usuários! </p>
+            <a class="btn btn-primary btn-xl js-scroll-trigger" href="projetos#index">Explorar projetos</a>
+          </div>
+          <%end%>
+          </div>
+        </div>
+      </div>

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :projetos
   get 'projetos' => 'projetos#index'
   get 'sobre' => 'paginas_iniciais#sobre'
+  get 'perfil' => 'paginas_iniciais#perfil'
 
   root                 'paginas_iniciais#home'
 

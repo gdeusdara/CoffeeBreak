@@ -4,4 +4,10 @@ class PaginasIniciaisController < ApplicationController
 
   def sobre
   end
+
+  def perfil
+    if !usuario_signed_in?
+      redirect_to "/"
+    end
+  end
 end

@@ -1,27 +1,25 @@
 <p id="notice"><%= notice %></p>
+<div class="container my-auto">
+  <div class="row">
+    <div class="col-lg-10 mx-auto">
+      <h1 class="text-uppercase">
+        <strong>Projetos</strong>
+      </h1>
 
-<h1>Projetos</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Titulo</th>
-      <th>Descricao</th>
-      <th>Instrucoes</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @projetos.each do |projeto| %>
       <tr>
-        <td><%= projeto.titulo %></td>
-        <td><%= projeto.descricao %></td>
-        <td><%= projeto.instrucoes %></td>
-        <td><%= link_to 'Visualizar', projeto %></td>
-      </tr>
+        <h2><%= projeto.titulo %></h2>
+        <%= image_tag projeto.foto_projeto.url(:thumb) %><br>
+        <%autor = Usuario.find(projeto.usuario_id)%>
+        <strong>Autoria: <%=autor.nome%></strong>
+        <p><%= projeto.descricao %></p>
+        <p><%= projeto.instrucoes %></p>
+        <% prox_pagina = "projetos/"+projeto.id.to_s%>
+        <a class="btn btn-primary btn-xl js-scroll-trigger" href=<%=prox_pagina %>>Visualizar</a>
+        <br>
     <% end %>
-  </tbody>
-</table>
 
 <br>
+</div>
+</div>
+</div>

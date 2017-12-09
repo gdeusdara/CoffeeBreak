@@ -6,10 +6,11 @@
             <h1 class="text-uppercase"
               <strong><%= @projeto.titulo%></strong>
             </h1>
-            <h3><%= @projeto.categoria.nome %></h3>
             <%= image_tag @projeto.foto_projeto.url(:medium) %>
 
             <p>
+              <%autor = Usuario.find(@projeto.usuario_id)%>
+              <strong><h4>Autoria: <%=autor.nome%></h4></strong><br>
 
               <strong>Descricao:</strong><br>
               <%= @projeto.descricao %>

@@ -1,18 +1,19 @@
 
       <div class="container my-auto">
-        <div class="row">
           <div class="col-lg-10 mx-auto">
             <h1 class="text-uppercase">
               <strong>Editando o Projeto</strong>
             </h1>
 
 <%= render 'form' %>
+<br>
+<br>
 
-<%= link_to 'visializar', @projeto %>
+<a class="btn btn-primary btn-xl js-scroll-trigger" href="/projetos">Voltar para Projetos</a>
+<% prox_pagina = "../../projetos/"+@projeto.id.to_s%>
+<a class="btn btn-primary btn-xl js-scroll-trigger" href=<%=prox_pagina %>>Visualizar seu projeto</a>
 <br>
 <br>
-<br>
-<a class="btn btn-primary btn-xl js-scroll-trigger" href="/projetos">Projetos</a>
 </div>
-</div>
+
 </div>
