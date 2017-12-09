@@ -1,6 +1,6 @@
 
 <%= simple_form_for @projeto, :html => { :multipart => true } do |f| %>
-  <%= select_tag(:categoria_id, options_for_select(@categoria), :prompt => "Selecione uma Categoria") %>
+  <%= select_tag(:categoria_id, options_for_select(@categorias), :prompt => "Selecione uma Categoria") %>
 	<%= f.input :titulo, label: "Título do Projeto" %>
 	<%= f.input :descricao %>
 	<%= f.input :instrucoes %>

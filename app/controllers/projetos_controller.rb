@@ -15,7 +15,7 @@ class ProjetosController < ApplicationController
   # GET /projetos/new
   def new
     @projeto = current_usuario.projetos.build
-    @categoria = Categoria.all.map { |e| [e.nome] }
+    @categorias = Categoria.all.map{ |e| [e.nome, e.id] }
   end
 
   # GET /projetos/1/edit
@@ -72,6 +72,6 @@ class ProjetosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def projeto_params
-      params.require(:projeto).permit(:titulo, :foto_projeto, :descricao, :instrucoes)
+      params.require(:projeto).permit(:titulo, :foto_projeto, :descricao, :instrucoes, :categoria_id)
     end
 end
