@@ -1,3 +1,6 @@
+<div class="container my-auto">
+  <div class="row">
+    <div class="col-lg-10 mx-auto">
 
 <%= form_with(model: projeto, local: true) do |form| %>
   <% if projeto.errors.any? %>
@@ -13,28 +16,33 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :titulo %>
+    <%= form.label :titulo %><br>
     <%= form.text_field :titulo, id: :projeto_titulo %>
   </div>
 
   <div class="field">
-    <%= form.label :descricao %>
+    <%= form.label :descricao %><br>
     <%= form.text_area :descricao, id: :projeto_descricao %>
   </div>
 
   <div class="field">
-    <%= form.label :instrucoes %>
+    <%= form.label :instrucoes %><br>
     <%= form.text_area :instrucoes, id: :projeto_instrucoes %>
   </div>
+<br>
 
   <div class="field">
-    <%= form.label :foto_do_projeto %><br />
+    <%= form.label :foto_do_projeto %>
     <%= form.file_field :foto_projeto %>
   </div>
-
+<br>
   <div class="actions">
     <%= form.submit %>
   </div>
 
 
 <% end %>
+
+</div>
+</div>
+</div>
