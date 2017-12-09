@@ -20,6 +20,7 @@ class ProjetosController < ApplicationController
 
   # GET /projetos/1/edit
   def edit
+    @categorias = Categoria.all.map{ |e| [e.nome, e.id] }
     if @projeto.usuario_id != current_usuario.id
       redirect_to projeto_path
     end
@@ -44,6 +45,7 @@ class ProjetosController < ApplicationController
   # PATCH/PUT /projetos/1
   # PATCH/PUT /projetos/1.json
   def update
+    @projeto.categoria_id = params[:categoria_id]
     if @projeto.usuario_id == current_usuario.id
       respond_to do |format|
 
@@ -76,10 +78,6 @@ class ProjetosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def projeto_params
-<<<<<<< HEAD
-      params.require(:projeto).permit(:titulo, :foto_projeto, :descricao, :instrucoes, :categoria_id)
-=======
-      params.require(:projeto).permit(:titulo, :foto_projeto, :descricao, :instrucoes, :link)
->>>>>>> 5e8b0f8c2a4386b42840104d51a35effa712be11
+      params.require(:projeto).permit(:titulo, :foto_projeto, :descricao, :instrucoes, :categoria_id, :link)
     end
 end
