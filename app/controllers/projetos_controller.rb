@@ -19,7 +19,9 @@ class ProjetosController < ApplicationController
 
   # GET /projetos/1/edit
   def edit
-
+    if @projeto.usuario_id != current_usuario.id
+      redirect_to projeto_path 
+    end
   end
 
   # POST /projetos
@@ -40,15 +42,16 @@ class ProjetosController < ApplicationController
   # PATCH/PUT /projetos/1
   # PATCH/PUT /projetos/1.json
   def update
+    if @projeto.usuario_id == current_usuario.id
+      respond_to do |format|
 
-    respond_to do |format|
-
-      if @projeto.update(projeto_params)
-        format.html { redirect_to @projeto, notice: 'Projeto was successfully updated.' }
-        format.json { render :show, status: :ok, location: @projeto }
-      else
-        format.html { render :edit }
-        format.json { render json: @projeto.errors, status: :unprocessable_entity }
+        if @projeto.update(projeto_params)
+          format.html { redirect_to @projeto, notice: 'Projeto was successfully updated.' }
+          format.json { render :show, status: :ok, location: @projeto }
+        else
+          format.html { render :edit }
+          format.json { render json: @projeto.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
