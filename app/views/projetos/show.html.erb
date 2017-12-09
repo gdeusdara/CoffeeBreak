@@ -34,6 +34,10 @@
 
             <a class="btn btn-primary btn-xl js-scroll-trigger" href=<%=@projeto.link%> >Ir para o repositorio do projeto</a>
 
+            <%= render @projeto.comentarios %>
+            <div>
+				      <%= link_to "Add Review", new_projeto_comentario_path(@projeto), class: "btn-custom" %>
+			      </div>
             <br>
             <br>
             <br>

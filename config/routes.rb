@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :projetos
+  resources :projetos do
+    resources :comentarios
+  end
   get 'projetos' => 'projetos#index'
   get 'sobre' => 'paginas_iniciais#sobre'
   get 'perfil' => 'paginas_iniciais#perfil'

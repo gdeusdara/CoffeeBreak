@@ -1,6 +1,6 @@
 class Projeto < ApplicationRecord
 	belongs_to :usuario
-
+	has_many :comentarios
 	#belongs_to :categoria
 
 	has_attached_file :foto_projeto, styles: { medium: "800x400>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"

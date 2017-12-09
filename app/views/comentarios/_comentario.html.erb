@@ -1,0 +1,22 @@
+<div class="review">
+
+	<div class="review-rating" data-score="<%= comentario.avaliacao %>"></div>
+	<p class="review-comment"><%= comentario.texto %></p>
+
+
+	<% if usuario_signed_in? %>
+
+		<% if comentario.usuario_id == current_usuario.id %>
+
+			<div class="links btn-group">
+
+				<%= link_to "Edit", edit_projeto_comentario_path(comentario.projeto, comentario), class: "btn btn-custom" %>
+				<%= link_to "Delete", projeto_comentario_path(comentario.projeto, comentario), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-custom" %>
+
+			</div>
+
+		<% end %>
+
+	<% end %>
+
+</div>
