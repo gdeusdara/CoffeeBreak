@@ -27,7 +27,14 @@
     <%= form.text_area :instrucoes, id: :projeto_instrucoes %>
   </div>
 
+  <div class="field">
+    <%= form.label :foto_do_projeto %><br />
+    <%= form.file_field :foto_projeto %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
+
+
 <% end %>

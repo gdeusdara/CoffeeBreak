@@ -25,7 +25,6 @@ class ProjetosController < ApplicationController
   # POST /projetos.json
   def create
     @projeto = current_usuario.projetos.build(projeto_params)
-
     respond_to do |format|
       if @projeto.save
         format.html { redirect_to @projeto, notice: 'Projeto was successfully created.' }
@@ -40,7 +39,9 @@ class ProjetosController < ApplicationController
   # PATCH/PUT /projetos/1
   # PATCH/PUT /projetos/1.json
   def update
+
     respond_to do |format|
+
       if @projeto.update(projeto_params)
         format.html { redirect_to @projeto, notice: 'Projeto was successfully updated.' }
         format.json { render :show, status: :ok, location: @projeto }
@@ -69,6 +70,6 @@ class ProjetosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def projeto_params
-      params.require(:projeto).permit(:titulo, :descricao, :instrucoes)
+      params.require(:projeto).permit(:titulo, :foto_projeto, :descricao, :instrucoes)
     end
 end
