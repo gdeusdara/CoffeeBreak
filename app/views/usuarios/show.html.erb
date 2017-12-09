@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+      <div class="container my-auto">
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <h1 class="text-uppercase"
+              <strong><%= @usuario.nome%></strong>
+            </h1>
+            <% @usuario.projetos.each do |projeto| %>
+              <tr>
+                <h2><%= projeto.titulo %></h2>
+                <%= image_tag projeto.foto_projeto.url(:medium) %><br>
+                <%autor = Usuario.find(projeto.usuario_id)%>
+                <p><strong>Descricao: </strong><%= projeto.descricao %></p>
+                <% prox_pagina = "../projetos/"+projeto.id.to_s%>
+                <a class="btn btn-primary btn-xl js-scroll-trigger" href=<%=prox_pagina %>>Visualizar</a>
+
+                <br>
+            <% end %>
+
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+          </div>
+
+      </div>

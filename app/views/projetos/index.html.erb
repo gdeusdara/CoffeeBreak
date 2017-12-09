@@ -18,6 +18,13 @@
         <a class="btn btn-primary btn-xl js-scroll-trigger" href=<%=prox_pagina %>>Visualizar</a>
         <br>
     <% end %>
+<br>
+<br>
+    <%if usuario_signed_in?%>
+      <%if current_usuario.desenvolvedor%>
+        <a class="btn btn-primary btn-xl js-scroll-trigger" href="/perfil">Meus Projetos</a>
+      <%end%>
+    <%end%>
 
 <br>
 </div>

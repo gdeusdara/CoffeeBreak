@@ -10,6 +10,12 @@
 <br>
 
 <a class="btn btn-primary btn-xl js-scroll-trigger" href="/projetos">Voltar para Projetos</a>
+<%if usuario_signed_in?%>
+  <%if current_usuario.desenvolvedor%>
+    <a class="btn btn-primary btn-xl js-scroll-trigger" href="/perfil">Meus Projetos</a>
+  <%end%>
+<%end%>
+
 <% prox_pagina = "../../projetos/"+@projeto.id.to_s%>
 <a class="btn btn-primary btn-xl js-scroll-trigger" href=<%=prox_pagina %>>Visualizar seu projeto</a>
 <br>

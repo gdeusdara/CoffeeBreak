@@ -9,6 +9,11 @@
 <br>
 <br>
 <a class="btn btn-primary btn-xl js-scroll-trigger" href="/projetos">Voltar para Projetos</a>
+<%if usuario_signed_in?%>
+  <%if current_usuario.desenvolvedor%>
+    <a class="btn btn-primary btn-xl js-scroll-trigger" href="/perfil">Meus Projetos</a>
+  <%end%>
+<%end%>
 <br>
 <br>
 <br>
