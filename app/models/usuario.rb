@@ -1,6 +1,5 @@
 class Usuario < ApplicationRecord
 	has_many :projetos
-<<<<<<< HEAD
 
 	has_many :active_relationships,  class_name:  "Relationship",
                                    foreign_key: "follower_id",
@@ -13,9 +12,6 @@ class Usuario < ApplicationRecord
 	has_many :following, through: :active_relationships, source: :followed
 	has_many :followers, through: :passive_relationships, source: :follower
 
-=======
-	has_many :comentarios
->>>>>>> comentarios
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -25,7 +21,7 @@ class Usuario < ApplicationRecord
 	def follow(outro_usuario)
 		following << outro_usuario
 	end
-	
+
 
  # Unfollows a user.
  	def unfollow(outro_usuario)
