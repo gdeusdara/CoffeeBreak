@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20171209125704) do
 
   create_table "categoria", force: :cascade do |t|
@@ -17,6 +18,9 @@ ActiveRecord::Schema.define(version: 20171209125704) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+=======
+ActiveRecord::Schema.define(version: 20171209134035) do
+>>>>>>> 5e8b0f8c2a4386b42840104d51a35effa712be11
 
   create_table "projetos", force: :cascade do |t|
     t.string "titulo"
@@ -29,7 +33,11 @@ ActiveRecord::Schema.define(version: 20171209125704) do
     t.string "foto_projeto_content_type"
     t.integer "foto_projeto_file_size"
     t.datetime "foto_projeto_updated_at"
+<<<<<<< HEAD
     t.integer "categoria_id"
+=======
+    t.string "link"
+>>>>>>> 5e8b0f8c2a4386b42840104d51a35effa712be11
   end
 
   create_table "usuarios", force: :cascade do |t|

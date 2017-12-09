@@ -10,6 +10,7 @@
             <%= image_tag @projeto.foto_projeto.url(:medium) %>
 
             <p>
+
               <strong>Descricao:</strong><br>
               <%= @projeto.descricao %>
             </p>
@@ -28,7 +29,10 @@
             <br>
             <br>
             <br>
-            <a class="btn btn-primary btn-xl js-scroll-trigger" href="/projetos">Projetos</a>
+            <a class="btn btn-primary btn-xl js-scroll-trigger" href="/projetos">Voltar para Projetos</a>
+
+            <a class="btn btn-primary btn-xl js-scroll-trigger" href=<%=@projeto.link%> >Ir para o repositorio do projeto</a>
+
             <br>
             <br>
             <br>
