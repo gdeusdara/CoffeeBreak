@@ -14,13 +14,17 @@ class ProjetosController < ApplicationController
 
   # GET /projetos/new
   def new
-    @projeto = current_usuario.projetos.build
+    if current_usuario.desenvolvedor
+      @projeto = current_usuario.projetos.build
+    else
+     redirect_to '/'
+    end
   end
 
   # GET /projetos/1/edit
   def edit
     if @projeto.usuario_id != current_usuario.id
-      redirect_to projeto_path 
+      redirect_to projeto_path
     end
   end
 
