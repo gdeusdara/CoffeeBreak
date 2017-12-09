@@ -31,9 +31,14 @@
   </div>
 <br>
 
+<div class="field">
+  <%= form.label :link %><br>
+  <%= form.text_field :link, id: :projeto_link %>
+</div>
+
   <div class="field">
     <%= form.label :foto_do_projeto %>
-    <%= form.file_field :foto_projeto %>
+    <%= form.file_field :foto_projeto,  id: :foto_projeto%>
   </div>
 <br>
   <div class="actions">

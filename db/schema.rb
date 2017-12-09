@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171209010514) do
+ActiveRecord::Schema.define(version: 20171209134035) do
 
   create_table "projetos", force: :cascade do |t|
     t.string "titulo"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20171209010514) do
     t.string "foto_projeto_content_type"
     t.integer "foto_projeto_file_size"
     t.datetime "foto_projeto_updated_at"
+    t.string "link"
   end
 
   create_table "usuarios", force: :cascade do |t|
