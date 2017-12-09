@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   get 'usuarios/show'
 
-  resources :projetos
+  resources :projetos do
+    resources :comentarios
+  end
   get 'projetos' => 'projetos#index'
   get 'sobre' => 'paginas_iniciais#sobre'
   get 'perfil' => 'paginas_iniciais#perfil'

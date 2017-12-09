@@ -10,12 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20171209190544) do
+=======
+ActiveRecord::Schema.define(version: 20171209185339) do
+>>>>>>> comentarios
 
   create_table "categorias", force: :cascade do |t|
     t.string "nome"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "comentarios", force: :cascade do |t|
+    t.integer "avaliacao"
+    t.text "texto"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "usuario_id"
+    t.integer "projeto_id"
   end
 
   create_table "projetos", force: :cascade do |t|
