@@ -3,6 +3,11 @@ class UsuariosController < ApplicationController
   def show
   end
 
+  def seguir_usuario(outro_usuario)
+    current_usuario.follow(outro_usuario)
+    redirect_to seguindo_path
+  end
+
   private
   def set_usuario
     @usuario = Usuario.find(params[:id])

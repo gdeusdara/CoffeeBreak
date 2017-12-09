@@ -1,0 +1,16 @@
+
+<div class="container my-auto">
+  <div class="row">
+    <div class="col-lg-10 mx-auto">
+      <h1 class="text-uppercase">
+        <strong>Projetos</strong>
+      </h1>
+
+    <% @seguindo.each do |followed| %>
+    <%usuario_seguido = User.find(followed_id)%>
+      <tr>
+        <h4><%=link_to usuario_seguido.nome, '../usuarios/'+usuario_seguido.id.to_s %></h4>
+
+    <% end %>
+<br>
+<br>

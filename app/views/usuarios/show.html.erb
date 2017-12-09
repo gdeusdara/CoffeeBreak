@@ -2,9 +2,22 @@
       <div class="container my-auto">
         <div class="row">
           <div class="col-lg-10 mx-auto">
+
             <h1 class="text-uppercase"
               <strong><%= @usuario.nome%></strong>
+              <% if usuario_signed_in?%>
+                <%if current_usuario.id != @usuario.id%>
+                <a class="btn btn-primary pull-right" href=<%=seguir_path(@usuario.id) %>>Seguir</a>
+                <%end%>
+              <%end%>
             </h1>
+
+            <div class="stats">
+              <a<strong <%= @usuario.following.count %></strong>following</a>
+              <a<%= @usuario.followers.count %></strong>followers</a>
+            </div>
+            <hr>
+
             <% @usuario.projetos.each do |projeto| %>
               <tr>
                 <h2><%= projeto.titulo %></h2>

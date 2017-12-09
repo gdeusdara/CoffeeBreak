@@ -7,7 +7,13 @@ class PaginasIniciaisController < ApplicationController
 
   def perfil
     if !usuario_signed_in?
-      redirect_to "/"
+      redirect_to home_path
     end
+  end
+
+
+
+  def seguindo
+    @seguindo = current_usuario.following.all
   end
 end

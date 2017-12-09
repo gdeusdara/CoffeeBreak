@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   get 'projetos' => 'projetos#index'
   get 'sobre' => 'paginas_iniciais#sobre'
   get 'perfil' => 'paginas_iniciais#perfil'
-
-  root                 'paginas_iniciais#home'
+  get 'seguir' => 'usuarios#seguir_usuario'
+  get 'seguindo' => 'paginas_iniciais#seguindo'
+  get 'home' => 'paginas_iniciais#home'
+  root                 'paginas_iniciais#perfil'
 
   devise_for :usuarios, :controllers => { registrations: 'registrations' }
 

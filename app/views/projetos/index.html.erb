@@ -12,8 +12,7 @@
         <%= image_tag projeto.foto_projeto.url(:thumb) %><br>
         <%autor = Usuario.find(projeto.usuario_id)%>
         <strong>Autoria: <%=autor.nome%></strong>
-        <p><%= projeto.descricao %></p>
-        <p><%= projeto.instrucoes %></p>
+        <p><strong>Descrição: </strong><%= projeto.descricao %></p>
         <% prox_pagina = "projetos/"+projeto.id.to_s%>
         <a class="btn btn-primary btn-xl js-scroll-trigger" href=<%=prox_pagina %>>Visualizar</a>
         <br>
@@ -25,6 +24,8 @@
         <a class="btn btn-primary btn-xl js-scroll-trigger" href="/perfil">Meus Projetos</a>
       <%end%>
     <%end%>
+    <br>
+    <br>
 
 <br>
 </div>
