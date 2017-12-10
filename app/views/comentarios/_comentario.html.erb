@@ -3,13 +3,13 @@
 
 	<div class="panel panel-default">
 		<% @autor = Usuario.find(comentario.usuario_id) %>
-  <div class="panel-heading"><%= @autor.nome %></div>
+  <div class="panel-heading"><%=link_to @autor.nome, '../usuarios/'+ @autor.id.to_s%></div>
   <div class="panel-body">
     <%= comentario.texto %>
 		<% if usuario_signed_in? %>
 			<% if comentario.usuario_id == current_usuario.id %>
 				<div class="links btn-group pull-right">
-					<%= link_to "Delete", projeto_comentario_path(comentario.projeto, comentario), method: :delete, data: { confirm: "Você tem certeza de que deseja apagar seu comentario?" }, class: "btn btn-primary btn-xl js-scroll-trigger" %>
+					<%= link_to "Apagar", projeto_comentario_path(comentario.projeto, comentario), method: :delete, data: { confirm: "Você tem certeza de que deseja apagar seu comentário?" }, class: "btn btn-primary btn-xl js-scroll-trigger" %>
 				</div>
 			<% end %>
 		<% end %>

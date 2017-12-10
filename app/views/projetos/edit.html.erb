@@ -4,15 +4,16 @@
             <h1 class="text-uppercase">
               <strong>Editando o Projeto</strong>
             </h1>
+            <hr>
 
 <%= render 'form' %>
 <br>
 <br>
-
-<a class="btn btn-primary btn-xl js-scroll-trigger" href="/projetos">Voltar para Projetos</a>
+<hr>
+<%= link_to "Voltar para projetos", projetos_path(@projeto), class: "btn btn-primary btn-xl js-scroll-trigger" %>
 <%if usuario_signed_in?%>
   <%if current_usuario.desenvolvedor%>
-    <a class="btn btn-primary btn-xl js-scroll-trigger" href="/perfil">Meus Projetos</a>
+    <%= link_to "Meus projetos", perfil_path(@projeto), class: "btn btn-primary btn-xl js-scroll-trigger" %>
   <%end%>
 <%end%>
 

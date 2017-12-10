@@ -21,7 +21,7 @@
 <br>
     <%if usuario_signed_in?%>
       <%if current_usuario.desenvolvedor%>
-        <a class="btn btn-primary btn-xl js-scroll-trigger" href="/perfil">Meus Projetos</a>
+        <%= link_to "Meus projetos", perfil_path(@projeto), class: "btn btn-primary btn-xl js-scroll-trigger" %>
       <%end%>
     <%end%>
     <br>

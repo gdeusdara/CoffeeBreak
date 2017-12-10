@@ -5,6 +5,7 @@
             <h1 class="text-uppercase">
               <strong><%= @projeto.titulo%></strong>
             </h1>
+            <hr>
             <div class="container-fluid">
             <figure class="figure">
               <%= image_tag @projeto.foto_projeto.url(:medium) %>
@@ -15,14 +16,14 @@
             <p>
               <%autor = Usuario.find(@projeto.usuario_id)%>
               <strong><h4>Autoria: <%=link_to autor.nome, '../usuarios/'+autor.id.to_s%></h4></strong><br>
-              <p><%= link_to 'like', method: :like, class: "btn btn-primary btn-xl js-scroll-trigger"  %> <%= @projeto.get_upvotes.size %>
+              <p><%= link_to 'like', method: :like, class: "btn btn-primary btn-xl js-scroll-trigger"%> <%= @projeto.get_upvotes.size %>
               <%= link_to 'dislike', method: :dislike, class: "btn btn-primary btn-xl js-scroll-trigger"%> <%= @projeto.get_downvotes.size %></p>
-              <strong>Descricao:</strong><br>
+              <strong>Descrição:</strong><br>
               <%= @projeto.descricao %>
             </p>
 
             <p>
-              <strong>Instrucoes:</strong><br>
+              <strong>Instruções:</strong><br>
               <%= @projeto.instrucoes %>
             </p>
 
@@ -35,46 +36,24 @@
             <br>
             <br>
             <br>
-
-            <a class="btn btn-primary btn-xl js-scroll-trigger" href=<%=@projeto.link%> >Ir para o repositorio do projeto</a>
+            <a class="btn btn-primary btn-xl jsprojetos-scroll-trigger" href="<%=@projeto.link%>">Ir para o repositório do projeto</a>
             <br>
             <br>
+            <%= link_to "Voltar para Projetos", projetos_path(@projeto), class: "btn btn-primary btn-xl js-scroll-trigger" %>
             <a class="btn btn-primary btn-xl js-scroll-trigger" href="/projetos">Voltar para Projetos</a>
             <%if usuario_signed_in?%>
               <%if current_usuario.desenvolvedor%>
-                <a class="btn btn-primary btn-xl js-scroll-trigger" href="/perfil">Meus Projetos</a>
+                <%= link_to "Meus projetos", perfil_path(@projeto), class: "btn btn-primary btn-xl js-scroll-trigger" %>
               <%end%>
             <%end%>
             <hr>
               <h3 class="text-uppercase">
-                Comentarios:
+                Comentários:
               </h3>
 
             <%= render @projeto.comentarios %>
 
-            <%= link_to "Adicione um Comentario", new_projeto_comentario_path(@projeto), class: "btn btn-primary btn-xl js-scroll-trigger" %>
-            <div>
-              <div class="modal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>Modal body text goes here.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-			      </div>
+            <%= link_to "Adicione um Comentário", new_projeto_comentario_path(@projeto), class: "btn btn-primary btn-xl js-scroll-trigger" %>
             <br>
             <br>
             <br>
