@@ -13,7 +13,7 @@
 
             <br>
             <hr>
-            <%if @usuario.projetos.count == 0%>
+            <%if @usuario.projetos.count == 0 && @usuario.desenvolvedor%>
             <div class="col-lg-8 mx-auto">
               <header class="masthead text-center d-flex">
                 <h4 class="text-uppercase">
@@ -22,6 +22,14 @@
               </header>
             </div>
 
+            <%elsif @usuario.projetos.count == 0 && !@usuario.desenvolvedor%>
+            <div class="col-lg-8 mx-auto">
+              <header class="masthead text-center d-flex">
+                <h4 class="text-uppercase">
+                  Este usuário não é desenvolvedor
+                </h4>
+              </header>
+            </div>
 
 
             <%else%>

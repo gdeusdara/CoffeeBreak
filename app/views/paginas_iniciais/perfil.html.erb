@@ -8,12 +8,17 @@
             <%if current_usuario.desenvolvedor%>
             <p><strong> Você tem <%=current_usuario.projetos.count%> projetos</strong></p>
             <a class="btn btn-primary btn-xl js-scroll-trigger" href="projetos/new">Crie um novo projeto</a>
+            <%else%>
+            <br>
+            <a class="btn btn-primary btn-xl js-scroll-trigger" href="/projetos">Explorar projetos</a>
             <%end%>
+            <%if current_usuario.following.count >0 %>
             <div class="stats pull-right">
               <a href="<%= seguindo_path %>">
                 PROJETOS DE USUARIOS SEGUIDOS
               </a>
             </div>
+            <%end%>
           <br>
             <section class="stats pull-right">
               <%= render 'shared/stats' %>
@@ -21,8 +26,7 @@
             <br>
             <hr>
           </div>
-          <%if current_usuario.desenvolvedor%>
-          <%if current_usuario.projetos.count == 0%>
+          <%if current_usuario.projetos.count == 0 && current_usuario.desenvolvedor%>
           <div class="col-lg-8 mx-auto">
             <header class="masthead text-center d-flex">
               <h4 class="text-uppercase">
@@ -30,8 +34,19 @@
               </h4>
             </header>
           </div>
-
+          <%elsif current_usuario.projetos.count == 0 && !current_usuario.desenvolvedor%>
+          <div class="col-lg-8 mx-auto">
+            <header class="masthead text-center d-flex">
+              <h4>Bem vindo(a) ao CoffeeBreak, aqui você pode seguir seus amigos e acompanhar os projetos que eles fazem! Se torne um desenvolvedor e crie seu próprios projetos!
+              </h4>
+            </header>
+          </div>
           <%else%>
+          <%if !current_usuario.desenvolvedor%>
+          <h4>Se torne um desenvolvedor novamente e crie seu próprios projetos!
+          </h4>
+          <%end%>
+          <%%>
           <div class="col-lg-8 mx-auto">
             <header class="masthead text-center d-flex">
               <h1 class="text-uppercase">
@@ -53,23 +68,12 @@
           <% end %>
           <br>
           <br>
-
+          <%if current_usuario.desenvolvedor && current_usuario.projeto.count > 0%>
             <a class="btn btn-primary btn-xl js-scroll-trigger" href="projetos/new">Crie um novo projeto</a>
           <%end%>
 
           <br>
           <br>
-          <%else%>
-          <div class="col-lg-8 mx-auto">
-            <p class="text-faded mb-5">Bem vindo(a) ao nosso site de compartilhamento de projetos!
-               Aqui você pode explorar projetos novos, seguir outros usuários! </p>
-            <a class="btn btn-primary btn-xl js-scroll-trigger" href="projetos#index">Explorar projetos</a>
-            <%if current_usuario.following.count > 0%>
-              <a class="btn btn-primary btn-xl js-scroll-trigger" href="seguindo">Ver projetos que sigo</a>
-            <%end%>
-
-          </div>
-          <%end%>
           </div>
         </div>
       </div>
