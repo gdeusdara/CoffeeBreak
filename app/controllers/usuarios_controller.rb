@@ -5,13 +5,13 @@ class UsuariosController < ApplicationController
   end
 
   def following
-    @title = "Following"
+    @title = "Seguindo"
     @usuario  = Usuario.find(params[:id])
     render 'show_follow'
   end
 
   def followers
-    @title = "Followers"
+    @title = "Seguidores"
     @usuario  = Usuario.find(params[:id])
     render 'show_follow'
   end

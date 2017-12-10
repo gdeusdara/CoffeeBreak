@@ -18,6 +18,5 @@ class PaginasIniciaisController < ApplicationController
 
 
   def seguindo
-    @seguindo = current_usuario.following.all
   end
 end

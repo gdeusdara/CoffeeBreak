@@ -5,8 +5,16 @@
             <h1 class="text-uppercase">
               Olá <%=current_usuario.nome%>
             </h1>
+            <%if current_usuario.desenvolvedor%>
             <p><strong> Você tem <%=current_usuario.projetos.count%> projetos</strong></p>
             <a class="btn btn-primary btn-xl js-scroll-trigger" href="projetos/new">Crie um novo projeto</a>
+            <%end%>
+            <div class="stats pull-right">
+              <a href="<%= seguindo_path %>">
+                PROJETOS DE USUARIOS SEGUIDOS
+              </a>
+            </div>
+          <br>
             <section class="stats pull-right">
               <%= render 'shared/stats' %>
             </section>
@@ -21,9 +29,7 @@
                 Você não tem projetos ainda :(
               </h4>
             </header>
-          </div
-
-
+          </div>
 
           <%else%>
           <div class="col-lg-8 mx-auto">
@@ -56,8 +62,12 @@
           <%else%>
           <div class="col-lg-8 mx-auto">
             <p class="text-faded mb-5">Bem vindo(a) ao nosso site de compartilhamento de projetos!
-               Aqui você pode explorar projetos novos, siguir outros usuários! </p>
+               Aqui você pode explorar projetos novos, seguir outros usuários! </p>
             <a class="btn btn-primary btn-xl js-scroll-trigger" href="projetos#index">Explorar projetos</a>
+            <%if current_usuario.following.count > 0%>
+              <a class="btn btn-primary btn-xl js-scroll-trigger" href="seguindo">Ver projetos que sigo</a>
+            <%end%>
+
           </div>
           <%end%>
           </div>

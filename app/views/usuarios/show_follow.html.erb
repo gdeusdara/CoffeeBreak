@@ -13,7 +13,7 @@
     </section>
 
   </aside>
-  <%if @title == 'Followers'%>
+  <%if @title == 'Seguidores'%>
 
         <div class="container my-auto">
               <%if @usuario.followers.count == 0%>
@@ -27,7 +27,7 @@
     <%else%>
     <div class="container my-auto">
           <%if @usuario.following.count == 0%>
-          <p>Não há following</p>
+          <p>Não há followings</p>
           <%else%>
           <%@usuario.following.each do |f| %>
           <h3><%=link_to f.nome, '/usuarios/'+f.id.to_s%></h3>
