@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'sobre' => 'paginas_iniciais#sobre'
   get 'perfil' => 'paginas_iniciais#perfil'
 
+  get 'novo_projeto' => 'projetos#new'
+
   get 'seguindo' => 'paginas_iniciais#seguindo'
 
   get 'home' => 'paginas_iniciais#home'
