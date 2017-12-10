@@ -1,5 +1,5 @@
 class ProjetosController < ApplicationController
-  before_action :set_projeto, only: [:show, :edit, :update, :destroy]
+  before_action :set_projeto, only: [:show, :edit, :update, :destroy, :like, :dislike]
 
   # GET /projetos
   # GET /projetos.json
@@ -10,6 +10,14 @@ class ProjetosController < ApplicationController
   # GET /projetos/1
   # GET /projetos/1.json
   def show
+  end
+
+  def like
+    @projeto.upvote_from current_usuario
+  end
+
+  def dislike
+    @projeto.downvote_from current_usuario
   end
 
   # GET /projetos/new
