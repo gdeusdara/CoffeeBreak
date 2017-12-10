@@ -17,7 +17,7 @@
 
         <div class="container my-auto">
               <%if @usuario.followers.count == 0%>
-              <p>Não há followers</p>
+              <h3>Não há seguidores</h3>
               <%else%>
               <%@usuario.followers.each do |f| %>
               <h3><%=link_to f.nome, '/usuarios/'+f.id.to_s%></h3>
@@ -27,7 +27,7 @@
     <%else%>
     <div class="container my-auto">
           <%if @usuario.following.count == 0%>
-          <p>Não há followings</p>
+          <h3>Este usuário não segue ninguem</h3>
           <%else%>
           <%@usuario.following.each do |f| %>
           <h3><%=link_to f.nome, '/usuarios/'+f.id.to_s%></h3>
