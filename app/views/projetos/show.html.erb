@@ -5,11 +5,9 @@
             <h1 class="text-uppercase"
               <strong><%= @projeto.titulo%></strong>
             </h1>
-            <%= link_to 'like', method: :like %>
-            <%= link_to 'dislike', method: :dislike%>
-            <%= image_tag @projeto.foto_projeto.url(:medium) %>
-            <%= @projeto.get_upvotes.size %>
-            <%= @projeto.get_downvotes.size %>
+            <p><%= link_to 'like', method: :like, class: "btn btn-primary btn-xl js-scroll-trigger"  %> <%= @projeto.get_upvotes.size %></p>
+            <p><%= link_to 'dislike', method: :dislike, class: "btn btn-primary btn-xl js-scroll-trigger"%> <%= @projeto.get_downvotes.size %></p>
+            <p><%= image_tag @projeto.foto_projeto.url(:medium) %></p>
             <p>
               <%autor = Usuario.find(@projeto.usuario_id)%>
               <strong><h4>Autoria: <%=link_to autor.nome, '../usuarios/'+autor.id.to_s%></h4></strong><br>
@@ -44,8 +42,10 @@
             <%end%>
 
             <%= render @projeto.comentarios %>
+
+            <%= link_to "Adicione um Comentario", new_projeto_comentario_path(@projeto), class: "btn btn-primary btn-xl js-scroll-trigger" %>
             <div>
-				      <%= link_to "Add Review", new_projeto_comentario_path(@projeto), class: "btn-custom" %>
+
 			      </div>
             <br>
             <br>
