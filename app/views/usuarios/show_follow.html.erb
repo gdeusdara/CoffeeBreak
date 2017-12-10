@@ -1,0 +1,37 @@
+<% provide(:title, @title) %>
+<div class="col-md-8">
+  <h1><%= @title %>:</h1>
+</div>
+
+  <aside class="col-md-4">
+    <section class="usuario_info">
+      <h2><%= link_to @usuario.nome, @usuario %></h2>
+      <span><b>Projetos:</b> <%= @usuario.projetos.count %></span>
+    </section>
+    <section class="stats">
+      <%= render 'shared/stats' %>
+    </section>
+
+  </aside>
+  <%if @title == 'Followers'%>
+
+        <div class="container my-auto">
+              <%if @usuario.followers.count == 0%>
+              <p>Não há followers</p>
+              <%else%>
+              <%@usuario.followers.each do |f| %>
+              <h3><%=link_to f.nome, '/usuarios/'+f.id.to_s%></h3>
+              <%end%>
+              <%end%>
+        </div>
+    <%else%>
+    <div class="container my-auto">
+          <%if @usuario.following.count == 0%>
+          <p>Não há following</p>
+          <%else%>
+          <%@usuario.following.each do |f| %>
+          <h3><%=link_to f.nome, '/usuarios/'+f.id.to_s%></h3>
+          <%end%>
+          <%end%>
+    </div>
+    <%end%>

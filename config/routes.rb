@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   get 'projetos' => 'projetos#index'
   get 'sobre' => 'paginas_iniciais#sobre'
   get 'perfil' => 'paginas_iniciais#perfil'
-  get 'seguir' => 'usuarios#seguir_usuario'
+
   get 'seguindo' => 'paginas_iniciais#seguindo'
+
   get 'home' => 'paginas_iniciais#home'
   root                 'paginas_iniciais#perfil'
 
@@ -21,11 +22,12 @@ Rails.application.routes.draw do
     get 'editar_conta' => 'devise/registrations#edit'
   end
 
-  resources :usuarios do
+  resources :usuarios  do
     member do
       get :following, :followers
     end
   end
+   resources :relationships,       only: [:create, :destroy]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

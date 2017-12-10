@@ -1,11 +1,19 @@
 class UsuariosController < ApplicationController
     before_action :set_usuario, only: [:show]
   def show
+    @usuario = Usuario.find(params[:id])
   end
 
-  def seguir_usuario(outro_usuario)
-    current_usuario.follow(outro_usuario)
-    redirect_to seguindo_path
+  def following
+    @title = "Following"
+    @usuario  = Usuario.find(params[:id])
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "Followers"
+    @usuario  = Usuario.find(params[:id])
+    render 'show_follow'
   end
 
   private
@@ -14,6 +22,6 @@ class UsuariosController < ApplicationController
   end
 
   def usuario_params
-    params.require(:usuario).permit(:nome, :projetos)
+    params.require(:usuario).permit(:nome, :projetos, :id)
   end
 end

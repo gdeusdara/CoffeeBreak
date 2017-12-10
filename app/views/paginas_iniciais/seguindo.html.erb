@@ -3,11 +3,11 @@
   <div class="row">
     <div class="col-lg-10 mx-auto">
       <h1 class="text-uppercase">
-        <strong>Projetos</strong>
+        <strong>Seguindo</strong>
       </h1>
 
     <% @seguindo.each do |followed| %>
-    <%usuario_seguido = User.find(followed_id)%>
+    <%usuario_seguido = Usuario.find(followed.id)%>
       <tr>
         <h4><%=link_to usuario_seguido.nome, '../usuarios/'+usuario_seguido.id.to_s %></h4>
 

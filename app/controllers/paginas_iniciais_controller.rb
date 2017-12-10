@@ -11,6 +11,10 @@ class PaginasIniciaisController < ApplicationController
     end
   end
 
+  def seguir_usuario(usuario_id)
+    current_usuario.follow(usuario_id)
+    redirect_to seguindo_path
+  end
 
 
   def seguindo
