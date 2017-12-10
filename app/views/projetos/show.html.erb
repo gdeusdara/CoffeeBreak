@@ -2,7 +2,7 @@
       <div class="container my-auto">
         <div class="row">
           <div class="col-lg-10 mx-auto">
-            <h1 class="text-uppercase"
+            <h1 class="text-uppercase">
               <strong><%= @projeto.titulo%></strong>
             </h1>
             <div class="container-fluid">
@@ -45,6 +45,10 @@
                 <a class="btn btn-primary btn-xl js-scroll-trigger" href="/perfil">Meus Projetos</a>
               <%end%>
             <%end%>
+            <hr>
+              <h3 class="text-uppercase">
+                Comentarios:
+              </h3>
 
             <%= render @projeto.comentarios %>
 
