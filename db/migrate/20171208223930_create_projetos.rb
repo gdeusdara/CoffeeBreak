@@ -4,7 +4,6 @@ class CreateProjetos < ActiveRecord::Migration[5.1]
       t.string :titulo
       t.text :descricao
       t.text :instrucoes
-
       t.timestamps
     end
   end
