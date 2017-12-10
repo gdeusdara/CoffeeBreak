@@ -1,5 +1,5 @@
 class ProjetosController < ApplicationController
-  before_action :set_projeto, only: [:show, :edit, :update, :destroy, :like, :dislike]
+  before_action :set_projeto, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
 
   # GET /projetos
   # GET /projetos.json
@@ -12,12 +12,22 @@ class ProjetosController < ApplicationController
   def show
   end
 
-  def like
-    @projeto.upvote_from current_usuario
+  def upvote
+    if usuario_signed_in?
+      @projeto.upvote_from current_usuario
+      redirect_to @projeto
+    else
+      redirect_to login_path
+    end
   end
 
-  def dislike
-    @projeto.downvote_from current_usuario
+  def downvote
+    if usuario_signed_in?
+      @projeto.downvote_from current_usuario
+      redirect_to @projeto
+    else 
+      redirect_to login_path
+    end
   end
 
   # GET /projetos/new

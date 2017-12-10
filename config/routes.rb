@@ -3,7 +3,15 @@ Rails.application.routes.draw do
 
   resources :projetos do
     resources :comentarios
+    member do
+      put "like" => "projetos#upvote"
+      put "unlike" => "projetos#downvote"
+    end
   end
+
+  get "like" => 'projetos#like'
+  get "dislike" => 'projetos#dislike'
+
   get 'projetos' => 'projetos#index'
   delete 'apagar' => 'projetos#destroy'
   get 'sobre' => 'paginas_iniciais#sobre'

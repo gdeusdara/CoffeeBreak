@@ -16,8 +16,20 @@
             <p>
               <%autor = Usuario.find(@projeto.usuario_id)%>
               <strong><h4>Autoria: <%=link_to autor.nome, '../usuarios/'+autor.id.to_s%></h4></strong><br>
-              <p><%= link_to 'like', method: :like, class: "btn btn-primary btn-xl js-scroll-trigger"%> <%= @projeto.get_upvotes.size %>
-              <%= link_to 'dislike', method: :dislike, class: "btn btn-primary btn-xl js-scroll-trigger"%> <%= @projeto.get_downvotes.size %></p>
+              <%= link_to like_projeto_path(@projeto), class:"like", method: :put do%>
+                <button type="button" class="btn btn-info" aria-label="Left Align">
+                  <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center" aria-hidden="true"></span>
+                  <span class="badge"><%= @projeto.get_upvotes.size %></span>
+                </button>
+              <% end %>
+              <%= link_to unlike_projeto_path(@projeto), class:"like", method: :put do%>
+                <button type="button" class="btn btn-info" aria-label="Left Align">
+                  <span class="glyphicon glyphicon-thumbs-down glyphicon-align-center" aria-hidden="true"></span>
+                  <span class="badge"><%= @projeto.get_downvotes.size %></span>
+                </button>
+              <% end %>
+              <br>
+              <br>
               <strong>Descrição:</strong><br>
               <%= @projeto.descricao %>
             </p>
