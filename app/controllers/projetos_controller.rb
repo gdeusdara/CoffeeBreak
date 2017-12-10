@@ -25,7 +25,7 @@ class ProjetosController < ApplicationController
     if usuario_signed_in?
       @projeto.downvote_from current_usuario
       redirect_to @projeto
-    else 
+    else
       redirect_to login_path
     end
   end
@@ -33,12 +33,11 @@ class ProjetosController < ApplicationController
   # GET /projetos/new
   def new
     @projeto = current_usuario.projetos.build
-  #  @categorias = Categoria.all.map{ |e| [e.nome, e.id] }
+
   end
 
   # GET /projetos/1/edit
   def edit
-    #@categorias = Categoria.all.map{ |e| [e.nome, e.id] }
     if @projeto.usuario_id != current_usuario.id
       redirect_to projeto_path
     end

@@ -52,7 +52,6 @@
             <br>
             <br>
             <%= link_to "Voltar para Projetos", projetos_path(@projeto), class: "btn btn-primary btn-xl js-scroll-trigger" %>
-            <a class="btn btn-primary btn-xl js-scroll-trigger" href="/projetos">Voltar para Projetos</a>
             <%if usuario_signed_in?%>
               <%if current_usuario.desenvolvedor%>
                 <%= link_to "Meus projetos", perfil_path(@projeto), class: "btn btn-primary btn-xl js-scroll-trigger" %>

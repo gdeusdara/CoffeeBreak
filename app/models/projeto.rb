@@ -1,7 +1,6 @@
 class Projeto < ApplicationRecord
 	belongs_to :usuario
 	has_many :comentarios
-	#belongs_to :categoria
 
 	acts_as_votable
 
