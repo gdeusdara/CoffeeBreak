@@ -1,4 +1,7 @@
 class Projeto < ApplicationRecord
+
+	acts_as_commontable dependent: :destroy
+
 	belongs_to :usuario
 
 	belongs_to :categoria

@@ -1,4 +1,7 @@
 class Usuario < ApplicationRecord
+
+	acts_as_commontator
+
 	has_many :projetos
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

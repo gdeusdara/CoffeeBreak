@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  mount Commontator::Engine => '/commontator'
+
   resources :projetos
   get 'projetos' => 'projetos#index'
   get 'sobre' => 'paginas_iniciais#sobre'
