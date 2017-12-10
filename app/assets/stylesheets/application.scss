@@ -13,3 +13,13 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+#logo {
+  background: image_url('header.jpg');
+  width: auto;
+  height: 905px;
+}
+
+.cor {
+  background-color:#80ced6;
+}

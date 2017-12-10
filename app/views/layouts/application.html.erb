@@ -12,36 +12,7 @@
     <!-- Plugin CSS -->
     <link href="https://blackrockdigital.github.io/startbootstrap-creative/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
-       <body>
-         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-           <div class="container">
-             <a class="navbar-brand js-scroll-trigger" href="/home">FaceProjects</a>
-             <button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-               <span class="navbar-toggler-icon"></span>
-             </button>
-             <div class="collapse navbar-collapse" id="navbarResponsive">
-               <ul class="navbar-nav ml-auto">
-                 <% if usuario_signed_in? %>
-                 <%saudacao = "Olá "+ current_usuario.nome + "!"%>
-                 <strong><%= link_to saudacao, perfil_path, :class => 'nav-link js-scroll-trigger' %></strong>
-                 <%= link_to "Editar conta", editar_conta_path, :class => 'nav-link js-scroll-trigger'  %>
-                 <%= link_to "Logout", destroy_usuario_session_path, method: :delete, :class => 'nav-link js-scroll-trigger'  %>
-                 <% else %>
-                 <%= link_to "Cadastre-se", cadastrar_path, :class => 'nav-link js-scroll-trigger'  %>
-                 <%= link_to "Login", login_path, :class => 'nav-link js-scroll-trigger'  %>
-                 <% end %>
-                 <%= link_to "Sobre", sobre_path, :class => 'nav-link js-scroll-trigger'  %>
-               </ul>
-               <ul class="navbar-nav ml-auto navbar-right">
-                 <% if usuario_signed_in?%>
-                 <% if current_usuario.desenvolvedor%>
-                   <%= link_to "Crie um novo projeto", new_projeto_path, :class => 'nav-link js-scroll-trigger' %>
-                  <% end %>
-                 <%end%>
-               </ul>
-             </div>
-           </div>
-         </nav>
+
 
         <title>Ep3</title>
         <%= csrf_meta_tags %>
@@ -49,11 +20,40 @@
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
       </head>
+      <body background="">
+        <nav class="navbar navbar-dark bg-dark navbar-expand-lg navbar-light fixed-top" id="mainNav">
+          <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="/home">FaceProjects</a>
+            <button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+              <ul class="navbar-nav ml-auto">
+                <% if usuario_signed_in? %>
+                <%saudacao = "Olá "+ current_usuario.nome + "!"%>
+                <strong><%= link_to saudacao, perfil_path, :class => 'nav-link js-scroll-trigger' %></strong>
+                <%= link_to "Editar conta", editar_conta_path, :class => 'nav-link js-scroll-trigger'  %>
+                <%= link_to "Logout", destroy_usuario_session_path, method: :delete, :class => 'nav-link js-scroll-trigger'  %>
+                <% else %>
+                <%= link_to "Cadastre-se", cadastrar_path, :class => 'nav-link js-scroll-trigger'  %>
+                <%= link_to "Login", login_path, :class => 'nav-link js-scroll-trigger'  %>
+                <% end %>
+                <%= link_to "Sobre", sobre_path, :class => 'nav-link js-scroll-trigger'  %>
+              </ul>
+              <ul class="navbar-nav ml-auto navbar-right">
+                <%= link_to "Projetos", projetos_path, :class => 'nav-link js-scroll-trigger'  %>
+                <% if usuario_signed_in?%>
+                <% if current_usuario.desenvolvedor%>
+                  <%= link_to "Crie um novo projeto", new_projeto_path, :class => 'nav-link js-scroll-trigger' %>
+                 <% end %>
+                <%end%>
+              </ul>
+            </div>
+          </div>
 
-
-     <p class="notice"><%= notice %></p>
-     <p class="alert"><%= alert %></p>
-
-     <%= yield %>
+          <p class="notice"><font color="white"><%= notice %></font></p>
+          <p class="alert"><font color="white"><%= alert %></font></p>
+        </nav>
+         <%= yield %>
     </body>
   </html>

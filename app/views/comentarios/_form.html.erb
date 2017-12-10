@@ -1,4 +1,4 @@
 <%= simple_form_for([@projeto, @projeto.comentarios.build]) do |f| %>
-	<%= f.input :texto %>
-	<%= f.button :submit, :class => "btn-custom2" %>
+	<%= f.input :texto, :class =>  "form-group"%>
+	<%= f.button :submit, :class => "btn btn-primary" %>
 <% end %>
