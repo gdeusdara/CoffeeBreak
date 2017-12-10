@@ -1,24 +1,26 @@
-# README
+# CoffeeBreak 1.0
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Um site de compartilhamento de projetos
 
-Things you may want to cover:
+## Instruções
 
-* Ruby version
+Faça o git clone na sua maquina e entre na pasta do projeto pelo terminal
+#### É preciso ter instalado
 
-* System dependencies
+1. O Ruby on Rails
+2. O ImageMagick
 
-* Configuration
+Caso não tenha o ImageMagick, instale pelo comando:
+```
+sudo apt-get install imagemagick -y
+```
 
-* Database creation
+## Rode o projeto
 
-* Database initialization
+```
+rake db:migrate
+```
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+rails s
+```
