@@ -3,14 +3,32 @@
   <div class="row">
     <div class="col-lg-10 mx-auto">
       <h1 class="text-uppercase">
-        <strong>Seguindo</strong>
+        <strong>Projetos seguidos</strong>
       </h1>
-
-    <% @seguindo.each do |followed| %>
-    <%usuario_seguido = Usuario.find(followed.id)%>
-      <tr>
-        <h4><%=link_to usuario_seguido.nome, '../usuarios/'+usuario_seguido.id.to_s %></h4>
-
+      <hr>
+      <%quantidade_de_projetos_seguidos = 0%>
+    <% current_usuario.following.each do |f| %>
+        <%f.projetos.each do |p| %>
+        <h2><%= p.titulo %></h2>
+        <%= image_tag p.foto_projeto.url(:medium) %><br>
+        <h4><strong>Autor: <%=link_to f.nome, '../usuarios/'+f.id.to_s%></strong></h4>
+        <p><strong>Descricao: </strong><%= p.descricao %></p>
+        <% prox_pagina = "projetos/"+p.id.to_s%>
+        <a class="btn btn-primary btn-xl js-scroll-trigger" href=<%=prox_pagina %>>Visualizar</a>
+        <%quantidade_de_projetos_seguidos = quantidade_de_projetos_seguidos +1%>
+        <%end%>
     <% end %>
+
+    <%if quantidade_de_projetos_seguidos == 0%>
+    <div class="col-lg-8 mx-auto">
+        <h4 class="text-uppercase">
+          Os usuarios que você segue não tem projetos ainda :(
+        </h4>
+        <a class="btn btn-primary btn-xl js-scroll-trigger" href="projetos#index">Explorar outros projetos</a>
+
+    </div>
+
+    <%end%>
+
 <br>
 <br>

@@ -1,4 +1,4 @@
 <%= form_for(current_usuario.active_relationships.find_by(followed_id: @usuario.id),
              html: { method: :delete }) do |f| %>
-  <%= f.submit "Unfollow", class: "btn pull-right" %>
+  <%= f.submit "Deixar de seguir", class: "btn pull-right" %>
 <% end %>

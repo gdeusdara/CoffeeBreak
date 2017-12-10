@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
 
-  get 'usuarios/show'
 
   resources :projetos do
     resources :comentarios
   end
   get 'projetos' => 'projetos#index'
+  delete 'apagar' => 'projetos#destroy'
   get 'sobre' => 'paginas_iniciais#sobre'
   get 'perfil' => 'paginas_iniciais#perfil'
 
