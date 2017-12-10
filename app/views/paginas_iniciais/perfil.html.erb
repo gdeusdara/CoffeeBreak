@@ -41,21 +41,22 @@
               </h4>
             </header>
           </div>
-          <%else%>
-          <%if !current_usuario.desenvolvedor%>
-          <h4>Se torne um desenvolvedor novamente e crie seu próprios projetos!
-          </h4>
-          <%end%>
-          <%%>
-          <div class="col-lg-8 mx-auto">
-            <header class="masthead text-center d-flex">
-              <h1 class="text-uppercase">
-                <strong>Seus Projetos:</strong>
+          <%elsif current_usuario.projetos.count > 0%>
+            <%if !current_usuario.desenvolvedor%>
+              <h4>Se torne um desenvolvedor novamente e crie seu próprios projetos!
+              </h4>
+            <%end%>
+            <div class="col-lg-8 mx-auto">
+              <header class="masthead text-center d-flex">
+                <h1 class="text-uppercase">
+                  <strong>Seus Projetos:</strong>
                 </h1>
-          </header>
-            <br>
-          <% current_usuario.projetos.each do |projeto| %>
-            <tr>
+              </header>
+              <br>
+
+
+            <% current_usuario.projetos.each do |projeto| %>
+
               <h2><%= projeto.titulo %></h2>
               <%= image_tag projeto.foto_projeto.url(:medium) %><br>
               <%autor = Usuario.find(projeto.usuario_id)%>
@@ -66,12 +67,13 @@
 
               <br>
           <% end %>
+
           <br>
           <br>
           <%if current_usuario.desenvolvedor && current_usuario.projeto.count > 0%>
             <a class="btn btn-primary btn-xl js-scroll-trigger" href="projetos/new">Crie um novo projeto</a>
           <%end%>
-
+          <%end%>
           <br>
           <br>
           </div>
