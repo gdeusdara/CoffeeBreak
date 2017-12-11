@@ -12,12 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20171210021149) do
 
-  create_table "categorias", force: :cascade do |t|
-    t.string "nome"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "comentarios", force: :cascade do |t|
     t.text "texto"
     t.datetime "created_at", null: false
@@ -37,7 +31,6 @@ ActiveRecord::Schema.define(version: 20171210021149) do
     t.string "foto_projeto_content_type"
     t.integer "foto_projeto_file_size"
     t.datetime "foto_projeto_updated_at"
-    t.integer "categoria_id"
     t.string "link"
   end
 
