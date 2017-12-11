@@ -12,18 +12,22 @@ Faça o git clone na sua maquina e entre na pasta do projeto pelo terminal
 
 1. O Ruby on Rails
 2. O ImageMagick
+3. O Nodejs
 
 Caso não tenha o ImageMagick, instale pelo comando:
 ```
 sudo apt-get install imagemagick -y
 ```
-
+Caso não tenha o Nodejs, instale pelo comando:
+```
+sudo apt-get install nodejs
+```
 ## Rode o projeto
 
-```
-rake db:migrate
-```
+Para rodar o projeto, digite os seguintes comandos na pasta do projeto:
 
 ```
+bundle install
+rake db:migrate
 rails s
 ```
