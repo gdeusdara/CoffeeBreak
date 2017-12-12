@@ -61,7 +61,6 @@ class ProjetosController < ApplicationController
   # PATCH/PUT /projetos/1
   # PATCH/PUT /projetos/1.json
   def update
-    @projeto.categoria_id = params[:categoria_id]
     if @projeto.usuario_id == current_usuario.id
       respond_to do |format|
 
