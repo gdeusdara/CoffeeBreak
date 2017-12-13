@@ -38,7 +38,7 @@
               <strong>Instruções:</strong><br>
               <%= @projeto.instrucoes %>
             </p>
-
+            
             <%if usuario_signed_in?%>
             <% if @projeto.usuario_id == current_usuario.id %>
             <%= link_to 'Editar', edit_projeto_path(@projeto) %>
