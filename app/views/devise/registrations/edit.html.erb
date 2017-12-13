@@ -1,10 +1,9 @@
 
-      <div class="container my-auto">
-        <div class="row">
-          <div class="col-lg-10 mx-auto">
-            <h1 class="text-uppercase">
-              <strong>Editar Conta</strong>
-            </h1>
+<body class="bg-dark">
+  <div class="container">
+    <div class="card card-login mx-auto mt-5">
+      <div class="card-header">Novo Usuario</div>
+        <div class="card-body">
 
               <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
               <%= devise_error_messages! %>
@@ -48,21 +47,17 @@
               <br>
 
               <div class="actions">
-                <%= f.submit "Atualizar" %>
+                <%= f.submit "Atualizar", :class => "btn btn-primary btn-block" %>
               </div>
               <% end %>
-
-              <h2>Deletar conta</h2>
-
-              <p>Depois de deletada a conta não poderá ser recuperada!<%= button_to "Apagar minha conta", registration_path(resource_name), data: { confirm: "Tem certeza?" }, method: :delete %></p>
-              <br>
+              <hr>
+              <h3 class="form-check-label">Deletar conta</h3>
+              <hr>
+                <p class="text-faded mb-5">Depois de deletada a conta não poderá ser recuperada!</p>
+                <%= button_to "Apagar minha conta", registration_path(resource_name), data: { confirm: "Tem certeza?" }, method: :delete, :class => "btn btn-primary btn-xl js-scroll-trigger" %>
+                <br>
               <a class="btn btn-primary btn-xl js-scroll-trigger" href="/">Voltar</a>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
             </div>
           </div>
         </div>
+      </body>

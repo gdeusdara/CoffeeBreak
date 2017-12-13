@@ -1,41 +1,76 @@
-<div class="container my-auto">
-  <div class="row">
-    <div class="col-lg-10 mx-auto">
-      <h1 class="text-uppercase">
-        <strong>Login</strong>
-      </h1>
 
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true %>
-      </div>
 
-      <div class="field">
-        <%= f.label :senha %><br />
-        <%= f.password_field :password, autocomplete: "off" %>
-      </div>
+<body class="bg-dark">
+  <div class="container">
+    <div class="card card-login mx-auto mt-5">
+      <div class="card-header">Login</div>
+        <div class="card-body">
 
-      <% if devise_mapping.rememberable? -%>
-      <div class="field">
-        <%= f.check_box :remember_me %>
-        <%= f.label :lembrar_de_mim%>
-      </div>
-      <% end -%>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="form-group">
 
-      <div class="actions">
-        <%= f.submit "Log in" %>
-      </div>
-      <% end %>
-      <br>
-      <br>
-      <%= link_to "Não é cadastrado?", cadastrar_path(@projeto), class: "btn btn-primary btn-xl js-scroll-trigger"%>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
+          <div class="form-group">
+            <%= f.label :email, :for => "exampleInputEmail1"  %><br />
+            <%= f.email_field :email, autofocus: true, :class => "form-crontrol", :id => "exampleInputEmail1"%>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :senha %><br />
+            <%= f.password_field :password, autocomplete: "off" , :class => "form-crontrol", :id => "exampleInputPassword1"%>
+          </div>
+
+          <% if devise_mapping.rememberable? -%>
+          <div class="form-group">
+            <%= f.check_box :remember_me %>
+            <%= f.label :lembrar_de_mim%>
+          </div>
+          <% end -%>
+
+          <div class="btn btn-primary btn-block">
+            <%= f.submit "Log in" , :class => "btn btn-primary btn-block"%>
+          </div>
+          <% end %>
+          <div class="text-center">
+            <%= link_to "Não é cadastrado?", cadastrar_path(@projeto), class: "d-block small mt-3"%>
+          </div>
+        </div>
+      </div>    
     </div>
   </div>
 </div>
+
+<!--<body class="bg-dark">
+  <div class="container">
+    <div class="card card-login mx-auto mt-5">
+      <div class="card-header">Login</div>
+      <div class="card-body">
+        <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input class="form-crontrol" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Enter email">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input class="form-control" id="exampleInputPassword1" type="password" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="checkbox"> Remember Password</label>
+            </div>
+          </div>
+          <a class="btn btn-primary btn-block" href="index.html">Login</a>
+        </form>
+        <div class="text-center">
+          <a class="d-block small mt-3" href="register.html">Register an Account</a>
+          <a class="d-block small" href="forgot-password.html">Forgot Password?</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  Bootstrap core JavaScript-->
+  <script src="file:///home/gdeusdara/Documentos/startbootstrap-sb-admin-gh-pages/login.htmlvendor/jquery/jquery.min.js"></script>
+  <script src="file:///home/gdeusdara/Documentos/startbootstrap-sb-admin-gh-pages/login.htmlvendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Core plugin JavaScript-->
+  <script src="file:///home/gdeusdara/Documentos/startbootstrap-sb-admin-gh-pages/login.htmlvendor/jquery-easing/jquery.easing.min.js"></script>
+</body>
