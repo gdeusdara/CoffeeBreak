@@ -6,7 +6,7 @@ config.parent_controller = "::ApplicationController"
     unless current_usuario.admin?
       redirect_to(
         main_app.root_path,
-        alert: "You are not permitted to view this page"
+        alert: "Você não está autorizado a entrar nesta pagina"
       )
     end
   end
