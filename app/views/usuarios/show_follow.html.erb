@@ -1,5 +1,6 @@
 <% provide(:title, @title) %>
-<div class="col-md-8">
+
+<div class="col-md-8 center">
   <h1><%= @title %>:</h1>
 </div>
 
@@ -11,11 +12,11 @@
     <section class="stats">
       <%= render 'shared/stats' %>
     </section>
-
   </aside>
-  <%if @title == 'Seguidores'%>
 
-        <div class="container my-auto">
+  <%if @title == 'Seguidores'%></h1>
+
+        <div class="container my-auto ">
               <%if @usuario.followers.count == 0%>
               <h3>Não há seguidores</h3>
               <%else%>
