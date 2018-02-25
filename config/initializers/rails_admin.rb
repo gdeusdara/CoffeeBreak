@@ -1,12 +1,22 @@
 RailsAdmin.config do |config|
 
+config.parent_controller = "::ApplicationController"
+
+  config.authorize_with do |controller|
+    unless current_usuario && current_usuario.admin?
+      redirect_to(
+        main_app.root_path,
+        alert: "You are not permitted to view this page"
+      )
+    end
+  end
   ### Popular gems integration
 
   ## == Devise ==
-  # config.authenticate_with do
-  #   warden.authenticate! scope: :user
-  # end
-  # config.current_user_method(&:current_user)
+  #config.authenticate_with do
+  #   warden.authenticate! scope: :usuario
+  #end
+  #config.current_usuario_method(&:current_usuario)
 
   ## == Cancan ==
   # config.authorize_with :cancan
