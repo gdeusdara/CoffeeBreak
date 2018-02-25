@@ -6,18 +6,25 @@
         <strong>Projetos seguidos</strong>
       </h1>
       <hr>
+      <%projetos = Array.new%>
       <%quantidade_de_projetos_seguidos = 0%>
-    <% current_usuario.following.each do |f| %>
+      <% current_usuario.following.each do |f| %>
         <%f.projetos.each do |p| %>
-        <h2><%= p.titulo %></h2>
-        <%= image_tag p.foto_projeto.url(:medium) %><br>
-        <h4><strong>Autor: <%=link_to f.nome, '../usuarios/'+f.id.to_s%></strong></h4>
-        <p><strong>Descricao: </strong><%= p.descricao %></p>
-        <% prox_pagina = "projetos/"+p.id.to_s%>
-        <a class="btn btn-primary btn-xl js-scroll-trigger" href=<%=prox_pagina %>>Visualizar</a>
-        <%quantidade_de_projetos_seguidos = quantidade_de_projetos_seguidos +1%>
+          <%projetos.push(p) %>
         <%end%>
     <% end %>
+
+    <%projetos = Projeto.order("created_at DESC")%>
+
+    <%projetos.each do |projeto|%>
+      <h2><%= projeto.titulo %></h2>
+      <%= image_tag projeto.foto_projeto.url(:medium) %><br>
+      <h4><strong>Autor: <%=link_to projeto.usuario.nome, '../usuarios/'+projeto.usuario.id.to_s%></strong></h4>
+      <p><strong>Descricao: </strong><%= projeto.descricao %></p>
+      <% prox_pagina = "projetos/"+projeto.id.to_s%>
+      <a class="btn btn-primary btn-xl js-scroll-trigger" href=<%=prox_pagina %>>Visualizar</a>
+      <%quantidade_de_projetos_seguidos = quantidade_de_projetos_seguidos +1%>
+    <%end%>
 
     <%if quantidade_de_projetos_seguidos == 0%>
     <div class="col-lg-8 mx-auto">

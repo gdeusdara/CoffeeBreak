@@ -57,7 +57,9 @@
               <br>
 
 
-            <% current_usuario.projetos.each do |projeto| %>
+                <%projetos = current_usuario.projetos%>
+                <%projetos = Projeto.order("created_at DESC")%>
+            <% projetos.each do |projeto| %>
 
               <h2><%= projeto.titulo %></h2>
               <%= image_tag projeto.foto_projeto.url(:medium) %><br>

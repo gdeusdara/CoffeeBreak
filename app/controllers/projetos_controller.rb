@@ -5,11 +5,13 @@ class ProjetosController < ApplicationController
   # GET /projetos.json
   def index
     @projetos = Projeto.all
+    @projetos = Projeto.order("created_at DESC")
   end
 
   # GET /projetos/1
   # GET /projetos/1.json
   def show
+    @projeto = Projeto.find(params[:id])
   end
 
   def upvote

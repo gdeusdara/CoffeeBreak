@@ -35,7 +35,9 @@
 
             <%else%>
 
-            <% @usuario.projetos.each do |projeto| %>
+            <% projetos = @usuario.projetos %>
+            <% projetos = Projeto.order("created_at DESC")%>
+            <% projetos.each do |projeto| %>
               <tr>
                 <h2><%= projeto.titulo %></h2>
                 <%= image_tag projeto.foto_projeto.url(:medium) %><br>

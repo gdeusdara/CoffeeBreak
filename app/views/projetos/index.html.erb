@@ -9,7 +9,7 @@
     <% @projetos.each do |projeto| %>
       <tr>
         <h2><%= projeto.titulo %></h2>
-        <%= image_tag projeto.foto_projeto.url(:thumb) %><br>
+        <%= image_tag projeto.foto_projeto.url(:medium) %><br>
         <%autor = Usuario.find(projeto.usuario_id)%>
         <strong>Autoria: <%=autor.nome%></strong>
         <p><strong>Descrição: </strong><%= projeto.descricao %></p>
