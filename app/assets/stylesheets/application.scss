@@ -13,13 +13,21 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
+/*
 #logo {
   background: image_url('header.jpg');
   width: auto;
   height: 905px;
 }
-
+*/
 .cor {
   background-color:#80ced6;
+}
+.unique { /* In Your CSS File */
+   background-image: url('header.jpg');
+}
+
+.img {
+    opacity: 0.0;
+    filter: alpha(opacity=00); /* For IE8 and earlier */
 }
