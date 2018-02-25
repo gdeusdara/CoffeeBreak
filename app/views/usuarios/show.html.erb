@@ -6,12 +6,12 @@
               <strong><%= @usuario.nome%></strong>
             </h1>
 
-            <%= render 'follow_form' if usuario_signed_in? %>
+            <%= render 'follow_form' if usuario_signed_in? %><br><br>
             <section class="stats pull-right">
               <%= render 'shared/stats' %>
             </section>
 
-            
+            <br>
             <hr>
             <hr>
             <%if @usuario.projetos.count == 0 && @usuario.desenvolvedor%>
