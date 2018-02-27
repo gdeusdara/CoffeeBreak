@@ -1,19 +1,18 @@
-<div class="container my-auto">
-  <div class="row">
-    <div class="col-lg-10 mx-auto">
-      <h1 class="text-uppercase">
-        <strong>Login</strong>
-      </h1>
 
+<body class="bg-dark">
+<div class="container">
+  <div class="card card-login mx-auto mt-5">
+    <div class="card-header">Login</div>
+    <div class="card-body">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field">
         <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true %>
+        <%= f.email_field :email, autofocus: true, class: "form-control" %>
       </div>
 
       <div class="field">
         <%= f.label :senha %><br />
-        <%= f.password_field :password, autocomplete: "off" %>
+        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
       </div>
 
       <% if devise_mapping.rememberable? -%>
@@ -24,18 +23,11 @@
       <% end -%>
 
       <div class="actions">
-        <%= f.submit "Log in" %>
+        <%= f.submit "Log in", class: "btn btn-primary btn-block" %>
       </div>
       <% end %>
-      <br>
-      <br>
-      <%= link_to "Não é cadastrado?", cadastrar_path(@projeto), class: "btn btn-primary btn-xl js-scroll-trigger"%>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
+      <%= link_to "Não é cadastrado?", cadastrar_path(@projeto), class: "d-block small mt-3 text-center"%>
     </div>
   </div>
 </div>
+</body>

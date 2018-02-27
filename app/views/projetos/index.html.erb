@@ -9,19 +9,20 @@
     <% @projetos.each do |projeto| %>
       <tr>
         <h2><%= projeto.titulo %></h2>
-        <%= image_tag projeto.foto_projeto.url(:medium) %><br>
+        <%= image_tag projeto.foto_projeto.url(:medium), class: "rounded" %><br>
         <%autor = Usuario.find(projeto.usuario_id)%>
         <strong>Autoria: <%=autor.nome%></strong>
         <p><strong>Descrição: </strong><%= projeto.descricao %></p>
         <% prox_pagina = "projetos/"+projeto.id.to_s%>
-        <a class="btn btn-primary btn-xl js-scroll-trigger" href=<%=prox_pagina%>>Visualizar</a>
+        <a class="btn btn-secondary btn-xl js-scroll-trigger" href=<%=prox_pagina%>>Visualizar</a>
         <br>
     <% end %>
+  </div>
 <br>
 <br>
     <%if usuario_signed_in?%>
       <%if current_usuario.desenvolvedor%>
-        <%= link_to "Meus projetos", perfil_path(@projeto), class: "btn btn-primary btn-xl js-scroll-trigger" %>
+        <%= link_to "Meus projetos", perfil_path(@projeto), class: "btn btn-secondary"%>
       <%end%>
     <%end%>
     <br>
