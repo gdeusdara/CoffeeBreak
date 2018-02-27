@@ -1,22 +1,21 @@
 
-      <div class="container my-auto">
-        <div class="row">
-          <div class="col-lg-10 mx-auto">
-            <h1 class="text-uppercase">
-              <strong>Novo Usuário</strong>
-            </h1>
+<body class="bg-dark">
+<div class="container">
+  <div class="card card-login mx-auto mt-5">
+    <div class="card-header">Novo Usuário</div>
+      <div class="card-body">
 
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <%= devise_error_messages! %>
 
             <div class="field">
               <%= f.label :nome %><br />
-              <%= f.text_field :nome, autofocus: true %>
+              <%= f.text_field :nome, autofocus: true, class: "form-control" %>
             </div>
 
             <div class="field">
               <%= f.label :email %><br />
-              <%= f.email_field :email, autofocus: true %>
+              <%= f.email_field :email, autofocus: true, class: "form-control" %>
             </div>
 
             <div class="field">
@@ -24,12 +23,12 @@
               <% if @minimum_password_length %>
               <em>(minimo de <%= @minimum_password_length %> caracteres)</em>
               <% end %><br />
-              <%= f.password_field :password, autocomplete: "off" %>
+              <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
             </div>
 
             <div class="field">
               <%= f.label :confirmação_de_senha %><br />
-              <%= f.password_field :password_confirmation, autocomplete: "off" %>
+              <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
             </div>
 
             <div class="field">
@@ -39,19 +38,10 @@
 
 
             <div class="actions">
-              <%= f.submit "Cadastrar" %>
+              <%= f.submit "Cadastrar", class: "btn btn-primary btn-block" %>
             </div>
             <% end %>
-
-            <br>
-            <br>
-            <a class="btn btn-primary btn-xl js-scroll-trigger" href="login">Já tenho cadastro!</a>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
+            <%= link_to "Já tenho cadastro", login_path(@projeto), class: "d-block small mt-3 text-center"%>
           </div>
         </div>
       </div>
