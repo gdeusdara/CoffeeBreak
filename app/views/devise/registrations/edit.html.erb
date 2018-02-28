@@ -30,6 +30,13 @@
                 <%= f.label :confirmação_de_senha %><br>
                 <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
               </div>
+
+              <div class="field">
+                <%= f.label :avatar %><br />
+                <%= f.file_field :avatar %>
+              </div>
+
+
               <br>
               <div class="form-group">
                 <%= f.label :desenvolvedor %>

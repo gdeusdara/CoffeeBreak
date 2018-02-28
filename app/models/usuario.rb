@@ -1,7 +1,7 @@
 class Usuario < ApplicationRecord
 	has_many :projetos
 
-	
+
   acts_as_voter
 
 
@@ -37,6 +37,10 @@ class Usuario < ApplicationRecord
 	def following?(outro_usuario)
 		following.include?(outro_usuario)
 	end
+
+	has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+
+	validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
 
 end
