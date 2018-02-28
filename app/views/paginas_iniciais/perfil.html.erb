@@ -60,8 +60,7 @@
               <br>
 
 
-                <%projetos = current_usuario.projetos%>
-                <%projetos = Projeto.order("created_at DESC")%>
+                <%projetos = current_usuario.projetos.order("created_at DESC")%>
             <% projetos.each do |projeto| %>
 
               <h2><%= projeto.titulo %></h2>

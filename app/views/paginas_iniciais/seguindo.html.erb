@@ -14,7 +14,6 @@
         <%end%>
     <% end %>
 
-    <%projetos = Projeto.order("created_at DESC")%>
 
     <%projetos.each do |projeto|%>
       <h2><%= projeto.titulo %></h2>

@@ -6,7 +6,7 @@
               <strong><%= @usuario.nome%></strong>
             </h1>
             <h2 class="title">
-              <%=@usuario.username%>
+              <%=@usuario.username %>
             </h2>
             <%= render 'follow_form' if usuario_signed_in? %><br><br>
             <section class="stats pull-right">
@@ -37,8 +37,7 @@
 
             <%else%>
 
-            <% projetos = @usuario.projetos %>
-            <% projetos = Projeto.order("created_at DESC")%>
+            <% projetos = @usuario.projetos.order("created_at DESC") %>
             <% projetos.each do |projeto| %>
               <tr>
                 <h2><%= projeto.titulo %></h2>
