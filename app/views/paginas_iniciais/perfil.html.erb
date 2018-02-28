@@ -2,10 +2,14 @@
       <div class="container my-auto">
         <div class="row">
           <div class="col-lg-10 mx-auto">
-            <%= image_tag current_usuario.avatar.url %>
-            <h1 class="text-uppercase">
-              Olá <%=current_usuario.nome%>
-            </h1>
+
+
+            <div>
+              <%= image_tag current_usuario.avatar.url(:thumb), class: "rounded-circle" %>  
+              <h1 class="text-uppercase">
+                Olá <%=current_usuario.nome%>
+              </h1>
+            </div>
             <h2 class="title">
               <%=current_usuario.username%>
             </h2>
