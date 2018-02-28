@@ -5,6 +5,9 @@
             <h1 class="text-uppercase">
               Olá <%=current_usuario.nome%>
             </h1>
+            <h2 class="title">
+              <%=current_usuario.username%>
+            </h2>
             <%if current_usuario.desenvolvedor%>
             <p><strong> Você tem <%=current_usuario.projetos.count%> projetos</strong></p>
             <a class="btn btn-primary btn-xl js-scroll-trigger" href="projetos/new">Crie um novo projeto</a>
