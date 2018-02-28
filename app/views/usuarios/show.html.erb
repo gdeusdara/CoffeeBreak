@@ -5,7 +5,9 @@
             <h1 class="text-uppercase"
               <strong><%= @usuario.nome%></strong>
             </h1>
-
+            <h2 class="title">
+              <%=@usuario.username%>
+            </h2>
             <%= render 'follow_form' if usuario_signed_in? %><br><br>
             <section class="stats pull-right">
               <%= render 'shared/stats' %>

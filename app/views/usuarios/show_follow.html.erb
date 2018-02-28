@@ -21,7 +21,7 @@
               <h3>Não há seguidores</h3>
               <%else%>
               <%@usuario.followers.each do |f| %>
-              <h3><%=link_to f.nome, '/usuarios/'+f.id.to_s%></h3>
+              <h3><%=link_to f.username, '/usuarios/'+f.id.to_s%></h3>
               <%end%>
               <%end%>
         </div>
@@ -31,7 +31,7 @@
           <h3>Este usuário não segue ninguem</h3>
           <%else%>
           <%@usuario.following.each do |f| %>
-          <h3><%=link_to f.nome, '/usuarios/'+f.id.to_s%></h3>
+          <h3><%=link_to f.username, '/usuarios/'+f.id.to_s%></h3>
           <%end%>
           <%end%>
     </div>
