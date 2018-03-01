@@ -61,8 +61,9 @@
 
 
                 <%projetos = current_usuario.projetos.order("created_at DESC")%>
+<div class="card-columns">
             <% projetos.each do |projeto| %>
-
+<!--
               <h2><%= projeto.titulo %></h2>
               <%= image_tag projeto.foto_projeto.url(:medium) %><br>
               <%autor = Usuario.find(projeto.usuario_id)%>
@@ -70,15 +71,37 @@
               <% prox_pagina = "projetos/"+projeto.id.to_s%>
               <a class="btn btn-primary btn-xl js-scroll-trigger" href=<%=prox_pagina %>>Visualizar</a>
               <a class="btn btn-primary btn-xl js-scroll-trigger" href=<%=prox_pagina+"/edit" %>>Editar</a>
+-->
 
+
+<% prox_pagina = "projetos/"+projeto.id.to_s%>
+<%= link_to prox_pagina  do %>
+  <div class="card "style="width: 100; height: 80; ">
+    <h4 class=" text-center font-weight-bold"><%=projeto.titulo%></h4>
+    <%= image_tag projeto.foto_projeto.url, :size => '260x180', alt:"Card Image", class:"card-img img-fluid"  %>
+    <div class="card-block">
+
+
+      <p class="card-text text-justify"><%=truncate projeto.descricao, length: 140%></p>
+      <!--<a class="btn btn-primary btn-card-titlexl js-scroll-trigger" href=<%=prox_pagina %>Visualizar</a>-->
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Última atualização:<%=projeto.updated_at.strftime("%d %b %Y, %H:%M")%></small>
+    </div>
+  </div>
+
+<%end  %>
               <br>
           <% end %>
+</div>
+          <br>
+          <br>
 
-          <br>
-          <br>
+
           <%if current_usuario.desenvolvedor && current_usuario.projetos.count > 0%>
             <a class="btn btn-primary btn-xl js-scroll-trigger" href="projetos/new">Crie um novo projeto</a>
           <%end%>
+
           <%end%>
           <br>
           <br>
