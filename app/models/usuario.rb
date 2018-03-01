@@ -1,7 +1,8 @@
 class Usuario < ApplicationRecord
+	validates_uniqueness_of :username
 	has_many :projetos
 
-	
+
   acts_as_voter
 
 
