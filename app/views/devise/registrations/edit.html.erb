@@ -80,6 +80,13 @@
               <div class="actions">
                 <%= f.submit "Salvar", class: "btn btn-primary btn-block" %>
               </div>
+              <br>
+
+            <div class="actions">
+              <%= button_to "Apagar minha conta", registration_path(resource_name), data: { confirm: "Tem certeza?" }, method: :delete, class: "btn btn-secundary btn-block" %>
+            </div>
+            <br>
+              <a class="btn btn-secundary btn-block" href="/">Voltar</a>
       <% end %>
     </div>
     </div>
