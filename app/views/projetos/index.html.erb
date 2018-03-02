@@ -5,16 +5,27 @@
       <h1 class="text-uppercase">
         <strong>Projetos</strong>
       </h1>
-
+      <hr>
     <% @projetos.each do |projeto| %>
+    <% prox_pagina = "projetos/"+projeto.id.to_s%>
       <tr>
-        <h2><%= projeto.titulo %></h2>
-        <%= image_tag projeto.foto_projeto.url(:medium), class: "rounded" %><br>
-        <%autor = Usuario.find(projeto.usuario_id)%>
-        <strong>Autoria: <%=autor.username%></strong>
-        <p><strong>Descrição: </strong><%= projeto.descricao %></p>
-        <% prox_pagina = "projetos/"+projeto.id.to_s%>
-        <a class="btn btn-secondary btn-xl js-scroll-trigger" href="<%=prox_pagina%>">Visualizar</a>
+          <article class="card">
+            <%= link_to prox_pagina  do %>
+              <header class="card-title">
+                <h3 class="text-center font-weight-bold" ><%= projeto.titulo %></h3>
+              </header>
+              <div class="card-img">
+                <%= image_tag projeto.foto_projeto.url, :size => '200x500', class: "rounded card-img" %>
+              </div>
+                <%end%>
+
+            <div class="card-body">
+              <%autor = Usuario.find(projeto.usuario_id)%>
+              <strong>Autoria: <%=link_to autor.username, '../usuarios/'+autor.id.to_s%></strong>
+              <p><strong>Descrição: </strong><%= projeto.descricao %></p>
+            </div>
+          </article>
+        <br>
         <br>
     <% end %>
 <br>
