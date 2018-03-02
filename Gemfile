@@ -65,3 +65,5 @@ gem 'jquery-rails'
 gem "paperclip", "~> 5.0.0"
 
 gem 'rails_admin', '~> 1.3'
+
+gem 'will_paginate-bootstrap'

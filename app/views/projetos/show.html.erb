@@ -48,23 +48,26 @@
             <br>
             <br>
             <br>
+            <a  class= "btn btn-secondary btn-xl js-scroll-trigger" href="javascript:history.back()" >Voltar</a>
             <a class="btn btn-primary btn-xl jsprojetos-scroll-trigger" href="<%=@projeto.link%>">Ir para o repositório do projeto</a>
             <br>
             <br>
-            <%= link_to "Voltar para Projetos", projetos_path(@projeto), class: "btn btn-primary btn-xl js-scroll-trigger" %>
-            <%if usuario_signed_in?%>
-              <%if current_usuario.desenvolvedor%>
-                <%= link_to "Meus projetos", perfil_path(@projeto), class: "btn btn-primary btn-xl js-scroll-trigger" %>
-              <%end%>
-            <%end%>
+
             <hr>
               <h3 class="text-uppercase">
                 Comentários:
               </h3>
+            <%if @projeto.comentarios.count == 0%>
+            <header class="masthead text-center d-flex">
+              <h4 >
+                Este projeto ainda não possui comentários, seja o primeiro a comentar!</h4>
+              </h4>
+            </header>
+            <%end%>
 
             <%= render @projeto.comentarios %>
 
-            <%= link_to "Adicione um Comentário", new_projeto_comentario_path(@projeto), class: "btn btn-primary btn-xl js-scroll-trigger" %>
+            <%= link_to "Adicione um Comentário", new_projeto_comentario_path(@projeto), class: "btn btn-secondary btn-xl js-scroll-trigger" %>
             <br>
             <br>
             <br>
