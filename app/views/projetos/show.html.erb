@@ -15,7 +15,7 @@
 
             <p>
               <%autor = Usuario.find(@projeto.usuario_id)%>
-              <strong><h4>Autoria: <%=link_to autor.username, '../usuarios/'+autor.id.to_s%></h4></strong><br>
+              <strong><h4>Desenvolvedor: <%=link_to autor.username, '../usuarios/'+autor.id.to_s%></h4></strong><br>
               <%= link_to like_projeto_path(@projeto), class:"like", method: :put do%>
                 <button type="button" class="btn btn-info" aria-label="Left Align">
                   <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center" aria-hidden="true"></span>
