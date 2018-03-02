@@ -25,7 +25,7 @@
             <div class="card-body">
               <%autor = Usuario.find(projeto.usuario_id)%>
               <strong>Desenvolvedor: <%=link_to autor.username, '../usuarios/'+autor.id.to_s%></strong>
-              <p><strong>Descrição: </strong><%= projeto.descricao %></p>
+              <p><strong>Descrição: </strong><%=truncate projeto.descricao, length: 600%></p>
             </div>
           </article>
         <br>
