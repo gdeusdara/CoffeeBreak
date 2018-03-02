@@ -78,8 +78,9 @@
                   <%= image_tag projeto.foto_projeto.url, :size => '260x180', alt:"Card Image", class:"card-img img-fluid"  %>
                   <%end%>
                   <div class="card-block">
-                    <p class="card-text text-center"><%=truncate projeto.descricao, length: 140%></p>
-                    <!--<a class="btn btn-primary btn-card-titlexl js-scroll-trigger" href=<%=prox_pagina %>Visualizar</a>-->
+                    <div class="card-body">
+                      <p class="card-text cart-body text-center"><%=truncate projeto.descricao, length: 140%></p>
+                    </div>
                   </div>
                   <div class="card-footer">
                     <small class="text-muted">Última atualização:<%=projeto.updated_at.strftime("%d %b %Y, %H:%M")%></small>
