@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180228191745) do
+ActiveRecord::Schema.define(version: 20180302001513) do
 
   create_table "comentarios", force: :cascade do |t|
     t.text "texto"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 20180228191745) do
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string "time_zone", default: "UTC"
     t.index ["email"], name: "index_usuarios_on_email", unique: true
     t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true
     t.index ["username"], name: "index_usuarios_on_username", unique: true
