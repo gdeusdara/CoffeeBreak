@@ -4,8 +4,11 @@ class ProjetosController < ApplicationController
   # GET /projetos
   # GET /projetos.json
   def index
-    @projetos = Projeto.all
-    @projetos = Projeto.order("created_at DESC")
+    @projetos = if params[:search]
+      Projeto.where('titulo LIKE ?', "%#{params[:search]}%")
+    else
+      Projeto.order("created_at DESC")
+    end
   end
 
   # GET /projetos/1
@@ -95,6 +98,6 @@ class ProjetosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def projeto_params
-      params.require(:projeto).permit(:titulo, :foto_projeto, :descricao, :instrucoes, :categoria_id, :link)
+      params.require(:projeto).permit(:titulo, :foto_projeto, :descricao, :instrucoes, :categoria_id, :link, :term)
     end
 end
