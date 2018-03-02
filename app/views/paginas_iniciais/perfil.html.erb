@@ -69,7 +69,7 @@
             <div class="card-columns">
 
             <% projetos.each do |projeto| %>
-            
+
               <% prox_pagina = "projetos/"+projeto.id.to_s%>
 
                 <div class="card "style="width: 100; height: 80; ">
@@ -82,7 +82,7 @@
                     <!--<a class="btn btn-primary btn-card-titlexl js-scroll-trigger" href=<%=prox_pagina %>Visualizar</a>-->
                   </div>
                   <div class="card-footer">
-                    <small class="text-muted">Última atualização:<%=projeto.updated_at.in_time_zone(current_usuario.time_zone).strftime("%d %b %Y, %H:%M")%></small>
+                    <small class="text-muted">Última atualização:<%=projeto.updated_at.strftime("%d %b %Y, %H:%M")%></small>
                   </div>
                 </div>
 
