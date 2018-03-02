@@ -30,7 +30,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
               <ul class="navbar-nav ml-auto">
                 <% if usuario_signed_in? %>
-                <%saudacao = "Olá "+ current_usuario.nome + "!"%>
+                <%saudacao = "Olá "+ current_usuario.username + "!"%>
                 <strong><%= link_to saudacao, perfil_path, :class => 'nav-link js-scroll-trigger' %></strong>
                 <%= link_to "Editar conta", editar_conta_path, :class => 'nav-link js-scroll-trigger'  %>
                 <%= link_to "Logout", destroy_usuario_session_path, method: :delete, :class => 'nav-link js-scroll-trigger'  %>
