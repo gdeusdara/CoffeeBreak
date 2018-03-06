@@ -66,8 +66,18 @@
             <%end%>
 
             <%= render @projeto.comentarios %>
+<br>
+<br>
 
-            <%= link_to "Adicione um Comentário", new_projeto_comentario_path(@projeto), class: "btn btn-secondary btn-xl js-scroll-trigger" %>
+            <%= form_for([@projeto, @projeto.comentarios.build]) do |f| %>
+            <div class="form-group">
+              <label for="comment">Novo Comentário:</label>
+              <%= f.text_area :texto, class:"form-control", rows: "5"%>
+            </div>
+            <div class="actions">
+              <%= f.submit "Comentar", class: "btn btn-primary btn-xl"%>
+            </div>
+            <%end%>
             <br>
             <br>
             <br>

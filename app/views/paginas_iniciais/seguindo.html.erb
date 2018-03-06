@@ -1,11 +1,13 @@
 
+<body class="corpo-instagram">
+
+
+<p id="notice"><%= notice %></p>
 <div class="container my-auto">
   <div class="row">
     <div class="col-lg-10 mx-auto">
-      <h1 class="text-uppercase">
-        <strong>Projetos seguidos</strong>
-      </h1>
-      <hr>
+
+
       <%projetos = Array.new%>
       <%quantidade_de_projetos_seguidos = 0%>
       <% current_usuario.following.each do |f| %>
@@ -14,27 +16,44 @@
         <%end%>
     <% end %>
 
+    <% projetos.each do |projeto| %>
+    <% prox_pagina = "projetos/"+projeto.id.to_s%>
+      <tr>
+          <article class="card">
+            <%= link_to prox_pagina  do %>
+              <header class="card-title">
+                <h3 class="text-center font-weight-bold" ><%= projeto.titulo %></h3>
+              </header>
+              <div class="card-img">
+                <%= image_tag projeto.foto_projeto.url, :size => '200x500', class: "rounded card-img" %>
+              </div>
+                <%end%>
 
-    <%projetos.each do |projeto|%>
-      <h2><%= projeto.titulo %></h2>
-      <%= image_tag projeto.foto_projeto.url(:medium) %><br>
-      <h4><strong>Autor: <%=link_to projeto.usuario.nome, '../usuarios/'+projeto.usuario.id.to_s%></strong></h4>
-      <p><strong>Descricao: </strong><%= projeto.descricao %></p>
-      <% prox_pagina = "projetos/"+projeto.id.to_s%>
-      <a class="btn btn-primary btn-xl js-scroll-trigger" href=<%=prox_pagina %>>Visualizar</a>
-      <%quantidade_de_projetos_seguidos = quantidade_de_projetos_seguidos +1%>
-    <%end%>
+            <div class="card-body">
+              <%autor = Usuario.find(projeto.usuario_id)%>
+              <strong>Desenvolvedor: <%=link_to autor.username, '../usuarios/'+autor.id.to_s%></strong>
+              <p><strong>Descrição: </strong><%=truncate projeto.descricao, length: 600%></p>
+            </div>
+          </article>
+        <br>
+        <br>
+    <% end %>
 
-    <%if quantidade_de_projetos_seguidos == 0%>
-    <div class="col-lg-8 mx-auto">
-        <h4 class="text-uppercase">
-          Os usuarios que você segue não tem projetos ainda :(
-        </h4>
-        <a class="btn btn-primary btn-xl js-scroll-trigger" href="projetos#index">Explorar outros projetos</a>
+  <%if projetos.count == 0%>
+    <h1>Não encontramos nenhum projeto :(</h1>
+    <h3>Siga outros usuários e acompanhe novos projetos!</h3>
+    <br>
+    <br>
+    <%= link_to "Explorar", projetos_path, class:"btn btn-secondary btn-xl js-scroll-trigger" %>
 
-    </div>
+  <%end%>
 
-    <%end%>
+
+    <br>
+    <br>
 
 <br>
-<br>
+</div>
+</div>
+</div>
+</body>

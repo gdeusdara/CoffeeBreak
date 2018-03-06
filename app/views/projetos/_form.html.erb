@@ -16,24 +16,27 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :título %><br>
-    <%= form.text_field :titulo, id: :projeto_titulo %>
+    <label for="comment">Título:</label>
+    <%= form.text_field :titulo, id: :projeto_titulo, class:"form-control", rows: "1" %>
+    <br>
   </div>
 
   <div class="field">
-    <%= form.label :descrição %><br>
-    <%= form.text_area :descricao, id: :projeto_descricao %>
+    <label for="comment">Descrição:</label>
+    <%= form.text_area :descricao, id: :projeto_descricao, class:"form-control", rows: "5" , placeholder:"Descreva seu projeto resaltando sua importancia e o asunto abordado."%>
+    <br>
   </div>
 
   <div class="field">
-    <%= form.label :instruções %><br>
-    <%= form.text_area :instrucoes, id: :projeto_instrucoes %>
+    <label for="comment">Instruções:</label>
+    <%= form.text_area :instrucoes, id: :projeto_instrucoes, class:"form-control", rows: "5", placeholder:"Como seu projeto pode ser baixado e usado? Escreva aqui as instruções."%>
+    <br>
   </div>
 <br>
 
 <div class="field">
-  <%= form.label :link_do_repositório_so_seu_projeto %><br>
-  <%= form.text_field :link, id: :projeto_link %>
+  <label for="comment">Link do repositório do projeto:</label>
+  <%= form.text_field :link, id: :projeto_link, class:"form-control", rows: "1", placeholder:"link para acesso ao projeto (gitlab, github, bit bucket...)"%>
 </div>
 <br>
   <div class="field">
@@ -42,7 +45,7 @@
   </div>
 <br>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Salvar Projeto", class: "btn btn-xl btn-primary"%>
   </div>
 
 

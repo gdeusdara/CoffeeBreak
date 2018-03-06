@@ -10,12 +10,8 @@
 <br>
 <br>
 <hr>
-<%= link_to "Voltar para projetos", projetos_path(@projeto), class: "btn btn-primary btn-xl js-scroll-trigger" %>
-<%if usuario_signed_in?%>
-  <%if current_usuario.desenvolvedor%>
-  <%= link_to " Meus projetos", perfil_path(@projeto), class: "btn btn-primary btn-xl js-scroll-trigger" %>
-  <%end%>
-<%end%>
+<a  class= "btn btn-secondary btn-xl js-scroll-trigger" href="javascript:history.back()" >Voltar</a>
+
 <br>
 <br>
 <br>

@@ -1,5 +1,8 @@
 class PaginasIniciaisController < ApplicationController
   def home
+    if usuario_signed_in?
+      redirect_to seguindo_path
+    end
   end
 
   def sobre
@@ -18,5 +21,8 @@ class PaginasIniciaisController < ApplicationController
 
 
   def seguindo
+    if !usuario_signed_in?
+      redirect_to home_path
+    end
   end
 end
