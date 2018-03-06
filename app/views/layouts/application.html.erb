@@ -41,13 +41,14 @@
                 <%= link_to "Sobre", sobre_path, :class => 'nav-link js-scroll-trigger'  %>
               </ul>
 
-              <ul class="navbar-nav ml-auto navbar-right" id="navbarResponsive">
+              <li class="navbar-nav ml-auto navbar-right" id="navbarResponsive">
               <% if usuario_signed_in? %>
                 <%if current_usuario.admin? %>
-                  <a class="nav-link js-scroll-trigger"href="/admin">Painel Administrativo</a>
+                  <a class="nav-link js-scroll-trigger"href="/admin">Admin</a>
                   <%end%>
               <%end%>
-            </ul>
+            </li>
+
 
               <ul class="navbar-nav ml-auto navbar-right" id="navbarResponsive">
                 <%= link_to "Projetos", projetos_path, :class => 'nav-link js-scroll-trigger'  %>
@@ -59,23 +60,37 @@
               </ul>
 
 
-
             </div>
+
+            <div class="navbar-form navbar-right" id="navbarResponsive">
+            <%= form_tag(projetos_path, :method => "get", id: "search-form", :class => "navbar-form navbar-left", :style => "display:inline;") do %>
+
+              <div class="input-group custom-search-form">
+                <%= text_field_tag :search, params[:search], placeholder: "Procure projetos", :class => "form-control" %>
+                <span class="input-group-btn">
+                  <%= button_tag(type: "submit", class: "btn", name: nil) do %>
+                    <span class="glyphicon glyphicon-search"></span>
+                  <% end %>
+                </span>
+              </div>
+            <% end %>
           </div>
+        </div>
 
-        </nav>
+      </nav>
 
+      <br>
+      <br>
 
-
-          <div class="container">
-              <%= flash_messages %>
-          </div>
+      <div class="container">
+          <%= flash_messages %>
+      </div>
           <!--
           <p class="notice"><%= notice %></p>
           <p class="alert"><%= alert %></p>
           -->
 
-          <%= yield %>
-</meta>
-    </body>
-  </html>
+      <%= yield %>
+    </meta>
+  </body>
+</html>

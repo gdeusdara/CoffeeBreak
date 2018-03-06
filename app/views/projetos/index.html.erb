@@ -8,14 +8,6 @@
       <h1 class="text-uppercase">
         <strong>Projetos</strong>
       </h1>
-      <thead>
-        <tr>
-          <%= form_tag(projetos_path, method: :get) do %>
-            <%= text_field_tag :search, params[:search] %>
-            <%= submit_tag 'Search', name: nil %>
-          <% end %>
-        </tr>
-      </thead>
 
       <hr>
     <% @projetos.each do |projeto| %>
@@ -40,13 +32,19 @@
         <br>
         <br>
     <% end %>
-<br>
-<br>
+
+  <%if @projetos.count == 0%>
+    <h1>Não encontramos nenhum projeto :(</h1>
+  <%end%>
+  <br>
+  <br>
     <%if usuario_signed_in?%>
       <%if current_usuario.desenvolvedor%>
         <%= link_to "Meus projetos", perfil_path(@projeto), class: "btn btn-secondary"%>
       <%end%>
     <%end%>
+
+
     <br>
     <br>
 
