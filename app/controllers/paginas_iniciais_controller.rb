@@ -1,7 +1,7 @@
 class PaginasIniciaisController < ApplicationController
-  def home
-    if usuario_signed_in?
-      redirect_to seguindo_path
+  def seguindo
+    if !usuario_signed_in?
+      redirect_to home_path
     end
   end
 
@@ -16,13 +16,10 @@ class PaginasIniciaisController < ApplicationController
 
   def seguir_usuario(usuario_id)
     current_usuario.follow(usuario_id)
-    redirect_to seguindo_path
+    redirect_to home_path
   end
 
 
-  def seguindo
-    if !usuario_signed_in?
-      redirect_to home_path
-    end
+  def home
   end
 end
