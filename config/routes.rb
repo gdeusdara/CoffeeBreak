@@ -20,10 +20,9 @@ Rails.application.routes.draw do
 
   get 'novo_projeto' => 'projetos#new'
 
-  get 'seguindo' => 'paginas_iniciais#seguindo'
-
   get 'home' => 'paginas_iniciais#home'
-  root                 'paginas_iniciais#perfil'
+
+  root                 'paginas_iniciais#seguindo'
 
   devise_for :usuarios, :controllers => { registrations: 'registrations' }
 

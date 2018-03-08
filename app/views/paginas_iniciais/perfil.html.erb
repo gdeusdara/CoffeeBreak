@@ -20,13 +20,6 @@
             <br>
             <a class="btn btn-primary btn-xl js-scroll-trigger" href="/projetos">Explorar projetos</a>
             <%end%>
-            <%if current_usuario.following.count >0 %>
-            <div class="stats pull-right">
-              <a href="<%= seguindo_path %>">
-                PROJETOS DE USUARIOS SEGUIDOS
-              </a>
-            </div>
-            <%end%>
           <br>
             <section class="stats pull-right">
               <%= render 'shared/stats' %>
